@@ -2,7 +2,7 @@ from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
-from Components.config import config, configfile
+from Components.config import config, configfile, ConfigNothing
 from Components.NimManager import nimmanager, InitNimManager
 from Components.TuneTest import Tuner
 from enigma import eDVBFrontendParametersSatellite, eDVBResourceManager, eTimer
@@ -265,8 +265,6 @@ class AutoDiseqc(ConfigListScreen, Screen):
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session)
 
-		self["config"].list = self.list
-
 		self["key_red"] = StaticText(_("Abort"))
 
 		self.index = 0
@@ -511,8 +509,9 @@ class AutoDiseqc(ConfigListScreen, Screen):
 		if len(self.found_sats) > 0:
 			self.list = []
 			for x in self.found_sats:
-				self.list.append(_("DiSEqC port %s: %s") % (x[0], x[2]))
-			self["config"].l.setList(self.list)
+				self.list.append((_("DiSEqC port %s: %s") % (x[0], x[2]), ConfigNothing()))
+			self["config"].list = self.list
+			self["config"].setCurrentIndex(len(self.found_sats) - 1)
 
 		if self.nr_of_ports == self.port_index:
 			self.state = 99
