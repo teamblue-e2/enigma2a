@@ -377,9 +377,9 @@ class NimSetup(Setup, ServiceStopScreen):
 		self.saveAll(reopen=True)
 		return True
 
-	def autoDiseqcRun(self, ports):
+	def autoDiseqcRun(self, ports, order="all"):
 		self.stopService()
-		self.session.openWithCallback(self.autoDiseqcCallback, AutoDiseqc, self.slotid, ports, self.nimConfig.simpleDiSEqCSetVoltageTone, self.nimConfig.simpleDiSEqCOnlyOnSatChange)
+		self.session.openWithCallback(self.autoDiseqcCallback, AutoDiseqc, self.slotid, ports, self.nimConfig.simpleDiSEqCSetVoltageTone, self.nimConfig.simpleDiSEqCOnlyOnSatChange, order)
 
 	def autoDiseqcCallback(self, result):
 		from Screens.Wizard import Wizard
@@ -710,7 +710,15 @@ class NimSetup(Setup, ServiceStopScreen):
 
 	def key_yellow(self):
 		if self.nimConfig.configMode.value == "simple" and self.nimConfig.diseqcMode.value in ("single", "diseqc_a_b", "diseqc_a_b_c_d") and (not self.nim.isCombined() or self.nimConfig.configModeDVBS.value):
-			self.autoDiseqcRun(self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d" and 4 or self.nimConfig.diseqcMode.value == "diseqc_a_b" and 2 or 1)
+			east_order = self.nimConfig.diseqcMode.value == "single" and ("13/19.2/23.5/28.2/4.8/9/16/36/56 - °E", "east") or ("13/19.2/23.5/28.2/4.8/9/16 - °E", "east")
+			menu = [(_("All"), "all"), ("13/19.2/23.5/28.2 - °E", "astra"), east_order, ("0.8/5/30 - °W", "west")]
+			if self.nimConfig.diseqcMode.value == "single":
+				menu.append(("36/56 - °E" + _(" (circular LNB)"), "circular"))
+			menu.append((_("No"), "no"))
+			def cb(choice):
+				if choice and choice[1] != "no":
+					self.autoDiseqcRun(self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d" and 4 or self.nimConfig.diseqcMode.value == "diseqc_a_b" and 2 or 1, choice[1])
+			self.session.openWithCallback(cb, ChoiceBox, title=_("Select satellite list:"), list=menu)
 		elif self.configMode:
 			self.nimConfig.configMode.selectNext()
 			self["config"].invalidate(self.configMode)
