@@ -1600,6 +1600,8 @@ def InitNimManager(nimmgr, update_slots=None):
 		nim.diseqcB = ConfigSatlist(list=diseqc_satlist_choices)
 		nim.diseqcC = ConfigSatlist(list=diseqc_satlist_choices)
 		nim.diseqcD = ConfigSatlist(list=diseqc_satlist_choices)
+		autodiseqc_search_order_choices = [("all", _("All")), ("astra", "13/19.2/23.5/28.2 - °E"), nim.diseqcMode.value == "single" and ("east", "13/19.2/23.5/28.2/4.8/9/16/36/56 - °E") or ("east", "13/19.2/23.5/28.2/4.8/9/16 - °E"), ("west", "0.8/5/30 - °W"), ("circular", "36/56 - °E" + _(" (circular LNB)"))]
+		nim.autoDiSEqC_order = ConfigSelection(autodiseqc_search_order_choices, "all")
 		nim.positionerMode = ConfigSelection(positioner_mode_choices, "usals")
 		nim.userSatellitesList = ConfigText('[]')
 		nim.pressOKtoList = ConfigNothing()
