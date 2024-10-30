@@ -39,9 +39,6 @@ class NimSetup(Setup, ServiceStopScreen):
 		if mode == "single":
 			self.singleSatEntry = (self.indent % _("Satellite"), nim.diseqcA, _("Select the satellite your dish receives from. If you are unsure select 'automatic' and the receiver will attempt to determine this for you."))
 			list.append(self.singleSatEntry)
-			if nim.diseqcA.value in ("360", "560"):
-				list.append((self.indent % _("Use circular LNB"), nim.simpleDiSEqCSetCircularLNB, _("If you are using a Circular polarised LNB select 'yes', otherwise select 'no'.")))
-			list.append((self.indent % _("Send DiSEqC"), nim.simpleSingleSendDiSEqC, _("Only select 'yes' if you are using a multiswich that requires a DiSEqC Port-A command signal. For all other setups select 'no'.")))
 		else:
 			list.append((self.indent % _("Port A"), nim.diseqcA, _("Select the satellite which is connected to Port-A of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
 		if mode in ("toneburst_a_b", "diseqc_a_b", "diseqc_a_b_c_d"):
@@ -51,11 +48,15 @@ class NimSetup(Setup, ServiceStopScreen):
 				list.append((self.indent % _("Port C"), nim.diseqcC, _("Select the satellite which is connected to Port-C of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
 				list.append((self.indent % _("Port D"), nim.diseqcD, _("Select the satellite which is connected to Port-D of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
 				self.autodiseqc_enabled = self.autodiseqc_enabled or (nim.diseqcC.value == '3600') or (nim.diseqcD.value == '3600')
-			if mode != "toneburst_a_b":
-				list.append((self.indent % _("Set voltage and 22KHz"), nim.simpleDiSEqCSetVoltageTone, _("Leave this set to 'yes' unless you fully understand why you are adjusting it.")))
-				list.append((self.indent % _("Send DiSEqC only on satellite change"), nim.simpleDiSEqCOnlyOnSatChange, _("Select 'yes' to only send the DiSEqC command when changing from one satellite to another, or select 'no' for the DiSEqC command to be resent on every zap.")))
 		if self.autodiseqc_enabled:
-				list.append((self.indent % _("Set auto DiSEqC search order"), nim.autoDiSEqC_order_single if mode == "single" else nim.autoDiSEqC_order, _("Finetune the auto DiSEqC order to in your situation the satellites could be found faster.")))
+			list.append((self.indent % _("Set auto DiSEqC search order"), nim.autoDiSEqC_order_single if mode == "single" else nim.autoDiSEqC_order, _("Finetune the auto DiSEqC order to in your situation the satellites could be found faster.")))
+		if mode in ("diseqc_a_b", "diseqc_a_b_c_d"):
+			list.append((self.indent % _("Set voltage and 22KHz"), nim.simpleDiSEqCSetVoltageTone, _("Leave this set to 'yes' unless you fully understand why you are adjusting it.")))
+			list.append((self.indent % _("Send DiSEqC only on satellite change"), nim.simpleDiSEqCOnlyOnSatChange, _("Select 'yes' to only send the DiSEqC command when changing from one satellite to another, or select 'no' for the DiSEqC command to be resent on every zap.")))
+		elif mode == "single":
+			if nim.diseqcA.value in ("360", "560"):
+				list.append((self.indent % _("Use circular LNB"), nim.simpleDiSEqCSetCircularLNB, _("If you are using a Circular polarised LNB select 'yes', otherwise select 'no'.")))
+			list.append((self.indent % _("Send DiSEqC"), nim.simpleSingleSendDiSEqC, _("Only select 'yes' if you are using a multiswich that requires a DiSEqC Port-A command signal. For all other setups select 'no'.")))
 
 	def createPositionerSetup(self, list):
 		nim = self.nimConfig
