@@ -539,8 +539,8 @@ class RecordTimerEntry(timer.TimerEntry):
 									MoviePlayerinstance.movieselection_dlg.close(None)
 									force = True
 								elif hasattr(MoviePlayerinstance, "execing") and MoviePlayerinstance.execing:
-									from Screens.InfoBarGenerics import setResumePoint
-									setResumePoint(MoviePlayerinstance.session)
+									from Screens.InfoBarGenerics import resumePointsInstance
+									resumePointsInstance.setResumePoint(MoviePlayerinstance.session)
 									MoviePlayerinstance.close()
 									force = True
 							if not force and MediaPlayerinstance and hasattr(MediaPlayerinstance, "execing") and MediaPlayerinstance.execing:
