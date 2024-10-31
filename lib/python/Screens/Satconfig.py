@@ -35,7 +35,8 @@ class NimSetup(Setup, ServiceStopScreen):
 
 	def createSimpleSetup(self, list, mode):
 		nim = self.nimConfig
-		self.autodiseqc_enabled = nim.diseqcA.value == '3600'
+		if nim.diseqcA.value == '3600':
+			self.autodiseqc_ports = 1
 		if mode == "single":
 			self.singleSatEntry = (self.indent % _("Satellite"), nim.diseqcA, _("Select the satellite your dish receives from. If you are unsure select 'automatic' and the receiver will attempt to determine this for you."))
 			list.append(self.singleSatEntry)
@@ -43,12 +44,14 @@ class NimSetup(Setup, ServiceStopScreen):
 			list.append((self.indent % _("Port A"), nim.diseqcA, _("Select the satellite which is connected to Port-A of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
 		if mode in ("toneburst_a_b", "diseqc_a_b", "diseqc_a_b_c_d"):
 			list.append((self.indent % _("Port B"), nim.diseqcB, _("Select the satellite which is connected to Port-B of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
-			self.autodiseqc_enabled = self.autodiseqc_enabled or (nim.diseqcB.value == '3600')
+			if (nim.diseqcB.value == '3600'):
+				self.autodiseqc_ports = 2
 			if mode == "diseqc_a_b_c_d":
 				list.append((self.indent % _("Port C"), nim.diseqcC, _("Select the satellite which is connected to Port-C of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
 				list.append((self.indent % _("Port D"), nim.diseqcD, _("Select the satellite which is connected to Port-D of your switch. If you are unsure select 'automatic' and the receiver will attempt to determine this for you. If nothing is connected to this port, select 'nothing connected'.")))
-				self.autodiseqc_enabled = self.autodiseqc_enabled or (nim.diseqcC.value == '3600') or (nim.diseqcD.value == '3600')
-		if self.autodiseqc_enabled:
+				if (nim.diseqcC.value == '3600') or (nim.diseqcD.value == '3600'):
+					self.autodiseqc_ports = 4
+		if self.autodiseqc_ports:
 			list.append((self.indent % _("Set auto DiSEqC search order"), nim.autoDiSEqC_order_single if mode == "single" else nim.autoDiSEqC_order, _("Finetune the auto DiSEqC order to in your situation the satellites could be found faster.")))
 		if mode in ("diseqc_a_b", "diseqc_a_b_c_d"):
 			list.append((self.indent % _("Set voltage and 22KHz"), nim.simpleDiSEqCSetVoltageTone, _("Leave this set to 'yes' unless you fully understand why you are adjusting it.")))
@@ -110,7 +113,7 @@ class NimSetup(Setup, ServiceStopScreen):
 
 	def createSetup(self):
 		self.adaptConfigModeChoices()
-		self.autodiseqc_enabled = False
+		self.autodiseqc_ports = False
 		self.list = []
 
 		self.multiType = self.configMode = self.diseqcModeEntry = self.advancedSatsEntry = self.advancedLnbsEntry = self.advancedDiseqcMode = self.advancedUsalsEntry = self.advancedLof =\
@@ -333,7 +336,7 @@ class NimSetup(Setup, ServiceStopScreen):
 			self.list.append((_("Force legacy signal stats"), self.nimConfig.force_legacy_signal_stats, _("If set to 'yes' signal values (SNR, etc) will be calculated from API V3. This is an old API version that has now been superseded.")))
 
 		self["config"].list = self.list
-		self["key_yellow"].setText(self.autodiseqc_enabled and not self.nim.isCombined() and _("Auto DiSEqC") or self.configMode and _("Configuration mode") or "")
+		self["key_yellow"].setText(_("Auto DiSEqC") if self.autodiseqc_ports else (_("Configuration mode") if self.configMode else ""))
 		self["key_blue"].setText(self.isChanged() and _("Set default") or "")
 
 	def newConfig(self):
@@ -351,20 +354,9 @@ class NimSetup(Setup, ServiceStopScreen):
 				self.createSetup()
 
 	def run(self):
-		if self.nimConfig.configMode.value == "simple" and self.nimConfig.diseqcMode.value in ("single", "toneburst_a_b", "diseqc_a_b", "diseqc_a_b_c_d") and (not self.nim.isCombined() or self.nimConfig.configModeDVBS.value):
-			autodiseqc_ports = 0
-			if self.nimConfig.diseqcMode.value == "single":
-				if self.nimConfig.diseqcA.orbital_position == 3600:
-					autodiseqc_ports = 1
-			elif self.nimConfig.diseqcMode.value in ("toneburst_a_b", "diseqc_a_b"):
-				if self.nimConfig.diseqcA.orbital_position == 3600 or self.nimConfig.diseqcB.orbital_position == 3600:
-					autodiseqc_ports = 2
-			elif self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d":
-				if self.nimConfig.diseqcA.orbital_position == 3600 or self.nimConfig.diseqcB.orbital_position == 3600 or self.nimConfig.diseqcC.orbital_position == 3600 or self.nimConfig.diseqcD.orbital_position == 3600:
-					autodiseqc_ports = 4
-			if autodiseqc_ports:
-				self.autoDiseqcRun(autodiseqc_ports)
-				return False
+		if self.autodiseqc_ports:
+			self.autoDiseqcRun()
+			return False
 		if self.have_advanced and self.nim.config_mode == "advanced":
 			# fillAdvancedList resets self.list so some entries like t2mirawmode removed
 			# saveAll will save any unsaved data before self.list entries are gone
@@ -382,10 +374,10 @@ class NimSetup(Setup, ServiceStopScreen):
 		self.saveAll(reopen=True)
 		return True
 
-	def autoDiseqcRun(self, ports):
+	def autoDiseqcRun(self):
 		self.stopService()
 		order = self.nimConfig.autoDiSEqC_order_single.value if self.nimConfig.diseqcMode.value == "single" else self.nimConfig.autoDiSEqC_order.value
-		self.session.openWithCallback(self.autoDiseqcCallback, AutoDiseqc, self.slotid, ports, self.nimConfig.simpleDiSEqCSetVoltageTone, self.nimConfig.simpleDiSEqCOnlyOnSatChange, order)
+		self.session.openWithCallback(self.autoDiseqcCallback, AutoDiseqc, self.slotid, self.autodiseqc_ports, self.nimConfig.simpleDiSEqCSetVoltageTone, self.nimConfig.simpleDiSEqCOnlyOnSatChange, order)
 
 	def autoDiseqcCallback(self, result):
 		from Screens.Wizard import Wizard
@@ -715,8 +707,8 @@ class NimSetup(Setup, ServiceStopScreen):
 		self.restartPrevService()
 
 	def key_yellow(self):
-		if self.autodiseqc_enabled and (not self.nim.isCombined() or self.nimConfig.configModeDVBS.value):
-			self.autoDiseqcRun(self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d" and 4 or self.nimConfig.diseqcMode.value in ("toneburst_a_b", "diseqc_a_b") and 2 or 1)
+		if self.autodiseqc_ports:
+			self.autoDiseqcRun()
 		elif self.configMode:
 			self.nimConfig.configMode.selectNext()
 			self["config"].invalidate(self.configMode)
