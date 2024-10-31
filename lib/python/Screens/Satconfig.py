@@ -351,12 +351,12 @@ class NimSetup(Setup, ServiceStopScreen):
 				self.createSetup()
 
 	def run(self):
-		if self.nimConfig.configMode.value == "simple" and self.nimConfig.diseqcMode.value in ("single", "diseqc_a_b", "diseqc_a_b_c_d") and (not self.nim.isCombined() or self.nimConfig.configModeDVBS.value):
+		if self.nimConfig.configMode.value == "simple" and self.nimConfig.diseqcMode.value in ("single", "toneburst_a_b", "diseqc_a_b", "diseqc_a_b_c_d") and (not self.nim.isCombined() or self.nimConfig.configModeDVBS.value):
 			autodiseqc_ports = 0
 			if self.nimConfig.diseqcMode.value == "single":
 				if self.nimConfig.diseqcA.orbital_position == 3600:
 					autodiseqc_ports = 1
-			elif self.nimConfig.diseqcMode.value == "diseqc_a_b":
+			elif self.nimConfig.diseqcMode.value in ("toneburst_a_b", "diseqc_a_b"):
 				if self.nimConfig.diseqcA.orbital_position == 3600 or self.nimConfig.diseqcB.orbital_position == 3600:
 					autodiseqc_ports = 2
 			elif self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d":
@@ -715,8 +715,8 @@ class NimSetup(Setup, ServiceStopScreen):
 		self.restartPrevService()
 
 	def key_yellow(self):
-		if self.autodiseqc_enabled and not self.nim.isCombined():
-			self.autoDiseqcRun(self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d" and 4 or self.nimConfig.diseqcMode.value == "diseqc_a_b" and 2 or 1)
+		if self.autodiseqc_enabled and (not self.nim.isCombined() or self.nimConfig.configModeDVBS.value):
+			self.autoDiseqcRun(self.nimConfig.diseqcMode.value == "diseqc_a_b_c_d" and 4 or self.nimConfig.diseqcMode.value in ("toneburst_a_b", "diseqc_a_b") and 2 or 1)
 		elif self.configMode:
 			self.nimConfig.configMode.selectNext()
 			self["config"].invalidate(self.configMode)
