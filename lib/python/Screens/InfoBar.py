@@ -21,7 +21,7 @@ from Screens.InfoBarGenerics import InfoBarShowHide, \
 	InfoBarServiceNotifications, InfoBarPVRState, InfoBarCueSheetSupport, InfoBarBuffer, InfoBarSimpleEventView, \
 	InfoBarSummarySupport, InfoBarMoviePlayerSummarySupport, InfoBarTimeshiftState, InfoBarTeletextPlugin, InfoBarExtensions, \
 	InfoBarSubtitleSupport, InfoBarPiP, InfoBarPlugins, InfoBarServiceErrorPopupSupport, InfoBarJobman, InfoBarPowersaver, \
-	InfoBarHDMI, setResumePoint, delResumePoint
+	InfoBarHDMI, resumePointsInstance
 from Screens.Hotkey import InfoBarHotkey
 
 profile("LOAD:InitBar_Components")
@@ -264,7 +264,7 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 			self.leavePlayerConfirmed([True, how])
 
 	def leavePlayer(self):
-		setResumePoint(self.session)
+		resumePointsInstance.setResumePoint(self.session)
 		self.handleLeave(config.usage.on_movie_stop.value)
 
 	def leavePlayerOnExit(self):
@@ -284,7 +284,7 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 
 	def leavePlayerOnExitCallback(self, answer):
 		if answer:
-			setResumePoint(self.session)
+			resumePointsInstance.setResumePoint(self.session)
 			self.handleLeave("quit")
 
 	def hidePipOnExitCallback(self, answer):
@@ -381,7 +381,7 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 		if self.execing and playing:
 			ref = self.session.nav.getCurrentlyPlayingServiceOrGroup()
 			if ref:
-				delResumePoint(ref)
+				resumePointsInstance.delResumePoint(ref)
 			self.handleLeave(config.usage.on_movie_eof.value)
 
 	def up(self):
@@ -538,7 +538,7 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 	def movieSelected(self, service):
 		if service is not None:
 			if self.cur_service and self.cur_service != service:
-				setResumePoint(self.session)
+				resumePointsInstance.setResumePoint(self.session)
 			self.cur_service = service
 			self.is_closing = False
 			self.session.nav.playService(service)
