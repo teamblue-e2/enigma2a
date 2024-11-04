@@ -18,8 +18,6 @@ from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.FileList import MultiFileSelectList
 from Tools.Directories import fileExists
 from boxbranding import getMachineBrand, getMachineName, getBoxType
-from subprocess import call
-import subprocess
 import six
 import glob
 import sys
@@ -313,11 +311,11 @@ class NetworkSamba(Screen):
 	def SambaStartStop(self):
 		commands = []
 		if not self.my_Samba_run:
-			subprocess.append('/etc/init.d/samba start')
+			commands.append('/etc/init.d/samba start')
 		elif self.my_Samba_run:
-			subprocess.append('/etc/init.d/samba stop')
-			subprocess.append('killall nmbd')
-			subprocess.append('killall smbd')
+			commands.append('/etc/init.d/samba stop')
+			commands.append('killall nmbd')
+			commands.append('killall smbd')
 		self.Console.eBatch(commands, self.StartStopCallback, debug=True)
 
 	def StartStopCallback(self, result=None, retval=None, extra_args=None):
@@ -327,9 +325,9 @@ class NetworkSamba(Screen):
 	def activateSamba(self):
 		commands = []
 		if fileExists('/etc/rc2.d/S20samba'):
-			subprocess.append('update-rc.d -f samba remove')
+			commands.append('update-rc.d -f samba remove')
 		else:
-			subprocess.append('update-rc.d -f samba defaults')
+			commands.append('update-rc.d -f samba defaults')
 		self.Console.eBatch(commands, self.StartStopCallback, debug=True)
 
 	def updateService(self):
