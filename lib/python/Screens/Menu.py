@@ -393,7 +393,7 @@ class MenuSort(Menu):
 	def __init__(self, session, parent):
 		self.somethingChanged = False
 		Menu.__init__(self, session, parent)
-		self.skinName = "MenuSort"
+		self.skinName = ["MenuSort", "Menu"]
 		self["key_red"] = StaticText(_("Exit"))
 		self["key_green"] = StaticText(_("Save changes"))
 		self["key_yellow"] = StaticText(_("Toggle show/hide"))
