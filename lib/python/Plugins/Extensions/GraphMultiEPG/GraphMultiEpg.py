@@ -1129,8 +1129,10 @@ class GraphMultiEPG(Screen, HelpableScreen):
 		if self["list"].selEntry(dir, visible):
 			if self["list"].offs > 0:
 				self.time_mode = self.TIME_CHANGE
+				self["key_blue"].setText(_("Now"))
 			else:
 				self.time_mode = self.TIME_NOW
+				self["key_blue"].setText(_("Prime Time"))
 			self.moveTimeLines(True)
 
 	def updEpoch(self, mins):
