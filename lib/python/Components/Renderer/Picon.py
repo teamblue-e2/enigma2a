@@ -98,7 +98,7 @@ def getPiconName(serviceRef):
 			legacy_name = re.sub("[^a-z0-9]", "", utf8_name.replace("&", "and").replace("+", "plus").replace("*", "star"))  # legacy ascii service name picons
 			pngname = findPicon(utf8_name) or legacy_name and findPicon(legacy_name) or findPicon(re.sub(r"(fhd|uhd|hd|sd|4k)$", "", utf8_name).strip()) or legacy_name and findPicon(re.sub(r"(fhd|uhd|hd|sd|4k)$", "", legacy_name).strip())
 			if not pngname and len(legacy_name) > 6:
-				series = re.sub(r"s[0-9]*e[0-9]*$", "", name)
+				series = re.sub(r"s[0-9]*e[0-9]*$", "", legacy_name)
 				pngname = findPicon(series)
 	return pngname
 
