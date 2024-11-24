@@ -530,7 +530,7 @@ def InitUsageConfig():
 				else:
 					return "%s" % (ngettext("%d week", "%d weeks", unit) % unit)
 		return _("0 minutes")
-	choices = [(i, wdhm(i)) for i in [i * 15 for i in range(0, 4)] + [i * 60 for i in range(1, 9)] + [i * 120 for i in range(5, 12)] + [i * 24 * 60 for i in range(1, 8)]]
+	choices = [(0, _('None'))] + [(i, wdhm(i)) for i in [i * 15 for i in range(1, 4)] + [i * 60 for i in range(1, 9)] + [i * 120 for i in range(5, 12)] + [i * 24 * 60 for i in range(1, 8)]]
 	config.epg.histminutes = ConfigSelection(default=0, choices=choices)
 	def EpgHistorySecondsChanged(configElement):
 		from enigma import eEPGCache
