@@ -1,6 +1,6 @@
 import struct
 import os
-from Components.config import config, ConfigSelection, ConfigYesNo, ConfigSubsection, ConfigText, ConfigLocations, ConfigDirectory, ConfigNothing
+from Components.config import config, ConfigSelection, ConfigYesNo, ConfigSubsection, ConfigText, ConfigLocations, ConfigDirectory, ConfigNothing, ConfigIP
 from enigma import eTimer, eHdmiCEC, eActionMap
 from Tools.StbHardware import getFPWasTimerWakeup
 import NavigationInstance
@@ -100,6 +100,8 @@ config.hdmicec.bookmarks = ConfigLocations(default=[LOGPATH])
 config.hdmicec.log_path = ConfigDirectory(LOGPATH)
 config.hdmicec.next_boxes_detect = ConfigYesNo(default=False)
 config.hdmicec.sourceactive_zaptimers = ConfigYesNo(default=False)
+config.hdmicec.ethernet_pc_used = ConfigYesNo(default=False)
+config.hdmicec.pc_ip = ConfigIP(default = [192,168,3,7])
 
 
 class HdmiCec:
@@ -116,6 +118,9 @@ class HdmiCec:
 		self.repeat = eTimer()
 		self.repeat.timeout.get().append(self.wakeupMessages)
 		self.queue = []
+
+		self.delayEthernetPC = eTimer()
+		self.delayEthernetPC.timeout.get().append(self.ethernetPCActive)
 
 		self.delay = eTimer()
 		self.delay.timeout.get().append(self.sendStandbyMessages)
@@ -324,7 +329,19 @@ class HdmiCec:
 				self.sendMessage(5, "standby")
 
 	def secondBoxActive(self):
+		if config.hdmicec.ethernet_pc_used.value:
+			self.delayEthernetPC.start(100, True)
 		self.sendMessage(0, "getpowerstatus")
+
+	def ethernetPCActive(self):
+		def result(data, retval, extra):
+			if retval == 0:
+				self.useStandby = False
+				print("[HDMI-CEC] found PC corresponding from address %s" % ip)
+		if config.hdmicec.ethernet_pc_used.value:
+			ip = "%d.%d.%d.%d" % tuple(config.hdmicec.pc_ip.value)
+			cmd = "ping -c 1 -W 1 %s >/dev/null 2>&1" % ip
+			Console().ePopen(cmd, result)
 
 	def onLeaveStandby(self):
 		self.wakeupMessages()
