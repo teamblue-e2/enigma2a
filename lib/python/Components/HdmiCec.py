@@ -2,6 +2,7 @@ import struct
 import os
 from Components.config import config, ConfigSelection, ConfigYesNo, ConfigSubsection, ConfigText, ConfigLocations, ConfigDirectory, ConfigNothing, ConfigIP
 from enigma import eTimer, eHdmiCEC, eActionMap
+from Components.Console import Console
 from Tools.StbHardware import getFPWasTimerWakeup
 import NavigationInstance
 from sys import maxsize
