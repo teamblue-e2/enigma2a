@@ -64,7 +64,7 @@ class HdmiCECSetupScreen(ConfigListScreen, Screen):
 			self.list.append((_("Detect next boxes before standby"), config.hdmicec.next_boxes_detect, _("Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command.")))
 			if config.hdmicec.next_boxes_detect.value:
 				for i in range(len(config.hdmicec.ethbox)):
-					self.list.append((8*" " + _("Detected box%s with lan") % (i + 1), config.hdmicec.ethbox[i].used, _("For detection next receivers use ethernet LAN instead HDMI-CEC protocol.")))
+					self.list.append((8*" " + _("Detect box%s via LAN") % (i + 1), config.hdmicec.ethbox[i].used, _("For detection next receivers use ethernet LAN instead HDMI-CEC protocol.")))
 					if config.hdmicec.ethbox[i].used.value:
 						self.list.append((16*" " + _("IP"), config.hdmicec.ethbox[i].ip))
 						self.list.append((16*" " + _("port"), config.hdmicec.ethbox[i].port))
