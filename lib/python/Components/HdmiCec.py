@@ -352,10 +352,8 @@ class HdmiCec:
 	def secondBoxActive(self):
 		if config.hdmicec.ethernet_pc_used.value:
 			self.delayEthernetPC.start(100, True)
-		for i in range(len(config.hdmicec.ethbox)):
-			if config.hdmicec.ethbox[i].used:
+		if any(box.used.value for box in config.hdmicec.ethbox):
 				self.delayEthernetBox.start(200, True)
-				break
 		self.sendMessage(0, "getpowerstatus")
 
 	def ethernetPCActive(self):
@@ -379,7 +377,7 @@ class HdmiCec:
 			except Exception as e:
 				print("[HDMI-CEC] error", e)
 
-		for i, box in enumerate(config.hdmicec.ethbox):
+		for box in config.hdmicec.ethbox:
 			if not self.useStandby: # no further testing is needed
 				break
 			if box.used.value:
