@@ -353,7 +353,7 @@ class HdmiCec:
 		if config.hdmicec.ethernet_pc_used.value:
 			self.delayEthernetPC.start(100, True)
 		if any(box.used.value for box in config.hdmicec.ethbox):
-				self.delayEthernetBox.start(200, True)
+			self.delayEthernetBox.start(200, True)
 		self.sendMessage(0, "getpowerstatus")
 
 	def ethernetPCActive(self):
