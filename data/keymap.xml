@@ -141,6 +141,40 @@
 		<key id="KEY_TAB" mapto="menu" flags="m" />
 	</map>
 
+	<map context="ListboxHelpMenuActions">
+		<device name="keyboard">
+			<key id="a" mapto="ignore" flags="b" />
+			<key id="b" mapto="ignore" flags="b" />
+		</device>
+		<key id="KEY_REWIND" mapto="moveEndM" flags="m" />
+		<key id="KEY_REWIND" mapto="moveEndR" flags="r" />
+		<key id="KEY_REWIND" mapto="moveEndL" flags="l" />
+		<key id="KEY_REWIND" mapto="moveEndB" flags="b" />
+		<key id="KEY_LEFT" mapto="ignore" flags="b" />
+		<key id="KEY_CHANNELUP" mapto="pageUpM" flags="m" />
+		<key id="KEY_CHANNELUP" mapto="pageUpR" flags="r" />
+		<key id="KEY_CHANNELUP" mapto="pageUpL" flags="l" />
+		<key id="KEY_CHANNELUP" mapto="pageUpB" flags="b" />
+		<key id="KEY_UP" mapto="ignore" flags="b" />
+		<key id="KEY_DOWN" mapto="ignore" flags="b" />
+		<key id="KEY_RIGHT" mapto="ignore" flags="b" />
+		<key id="KEY_CHANNELDOWN" mapto="pageDownM" flags="m" />
+		<key id="KEY_CHANNELDOWN" mapto="pageDownR" flags="r" />
+		<key id="KEY_CHANNELDOWN" mapto="pageDownL" flags="l" />
+		<key id="KEY_CHANNELDOWN" mapto="pageDownB" flags="b" />
+		<key id="KEY_FASTFORWARD" mapto="moveTopM" flags="m" />
+		<key id="KEY_FASTFORWARD" mapto="moveTopR" flags="r" />
+		<key id="KEY_FASTFORWARD" mapto="moveTopL" flags="l" />
+		<key id="KEY_FASTFORWARD" mapto="moveTopB" flags="b" />
+		<!-- Keyboard specific buttons -->
+		<key id="KEY_HOME" mapto="ignore" flags="b" />
+		<key id="KEY_PAGEUP" mapto="ignore" flags="b" />
+		<key id="KEY_PAGEDOWN" mapto="ignore" flags="b" />
+		<key id="KEY_END" mapto="ignore" flags="b" />
+		<key id="1" mapto="ignore" flags="b" />
+		<key id="2" mapto="ignore" flags="b" />
+	</map>
+
 	<map context="VirtualKeyBoardActions">
 		<!-- Also uses NumberActions -->
 		<!-- Also uses TextEditActions -->
