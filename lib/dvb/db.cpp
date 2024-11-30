@@ -2674,21 +2674,6 @@ RESULT eDVBDB::removeBouquet(const std::string &filename_regex)
 	ePtr<eDVBResourceManager> res;
 	eDVBResourceManager::getInstance(res);
 	res->getChannelList(db);
-	std::string bouquetquery = "FROM BOUQUET \"" + filename + "\" ORDER BY bouquet";
-	eServiceReference bouquetref(eServiceReference::idDVB, eServiceReference::flagDirectory, bouquetquery);
-	bouquetref.setData(0, type);
-	eBouquet *bouquet = NULL;
-	eServiceReference rootref(eServiceReference::idDVB, eServiceReference::flagDirectory, "FROM BOUQUET \"bouquets" + ext + "\" ORDER BY bouquet");
-	if (!db->getBouquet(bouquetref, bouquet) && bouquet)
-	{
-		if (!db->getBouquet(rootref, bouquet) && bouquet)
-		{
-			bouquet->m_services.remove(bouquetref);
-			bouquet->flushChanges();
-			deleteBouquet(filename);
-		}
-	}
-	else
 	std::string p = eEnv::resolve("${sysconfdir}/enigma2/");
 	DIR *dir = opendir(p.c_str());
 	if (!dir)
