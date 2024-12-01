@@ -127,18 +127,18 @@
 		<key id="KEY_EXIT" mapto="close" flags="l" />
 		<key id="KEY_OK" mapto="select" flags="m" />
 		<key id="KEY_MENU" mapto="menu" flags="m" />
-		<key id="KEY_FILE" mapto="menu" flags="m" />
-		<key id="KEY_LIST" mapto="menu" flags="m" />
-		<key id="KEY_MEDIA" mapto="menu" flags="m" />
-		<key id="KEY_PVR" mapto="menu" flags="m" />
-		<key id="KEY_VIDEO" mapto="menu" flags="m" />
+		<key id="KEY_FILE" mapto="select" flags="m" />
+		<key id="KEY_LIST" mapto="select" flags="m" />
+		<key id="KEY_MEDIA" mapto="select" flags="m" />
+		<key id="KEY_PVR" mapto="select" flags="m" />
+		<key id="KEY_VIDEO" mapto="select" flags="m" />
 		<!-- Keyboard specific buttons -->
 		<key id="KEY_F5" mapto="cancel" flags="m" />
 		<key id="KEY_F6" mapto="save" flags="m" />
 		<key id="KEY_ESC" mapto="cancel" flags="b" />
 		<key id="KEY_ESC" mapto="close" flags="l" />
 		<key id="KEY_ENTER" mapto="select" flags="m" />
-		<key id="KEY_TAB" mapto="menu" flags="m" />
+		<key id="KEY_TAB" mapto="select" flags="m" />
 	</map>
 
 	<map context="ListboxHelpMenuActions">
