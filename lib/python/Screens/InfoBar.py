@@ -1,5 +1,6 @@
 from Tools.Profile import profile
 from enigma import eServiceReference
+import os
 
 # workaround for required config entry dependencies.
 import Screens.MovieSelection
@@ -31,7 +32,6 @@ from Components.ServiceEventTracker import ServiceEventTracker, InfoBarBase
 
 profile("LOAD:HelpableScreen")
 from Screens.HelpMenu import HelpableScreen
-
 
 class InfoBar(InfoBarBase, InfoBarShowHide,
 	InfoBarNumberZap, InfoBarChannelSelection, InfoBarMenu, InfoBarEPG, InfoBarRdsDecoder,
@@ -264,6 +264,8 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 			self.session.openWithCallback(self.leavePlayerConfirmed, ChoiceBox, title=_("Stop playing this movie?"), list=_list)
 		else:
 			self.leavePlayerConfirmed([True, how])
+			#This does reset the Video Decoder as needed for GigaBlue boxes.
+			config.usage.QuadpipMode.changed()
 
 	def leavePlayer(self):
 		resumePointsInstance.setResumePoint(self.session)
