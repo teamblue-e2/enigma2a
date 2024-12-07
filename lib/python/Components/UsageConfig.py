@@ -785,7 +785,7 @@ def InitUsageConfig():
 	def quadpip_mode_notifier(configElement):
 		if BoxInfo.getItem("HasQuadpip"):
 			open(BoxInfo.getItem("HasQuadpip"), "w").write("mosaic" if configElement.value else "normal")
-	config.usage.QuadpipMode = ConfigYesNo(default=False)
+	config.usage.QuadpipMode = NoSave(ConfigYesNo(default=False))
 	config.usage.QuadpipMode.addNotifier(quadpip_mode_notifier)
 
 	config.subtitles = ConfigSubsection()
