@@ -323,6 +323,9 @@ class Wizard(Screen):
 		if self.updateValues not in self.onShown:
 			self.onShown.append(self.updateValues)
 
+		if self.configInstance:
+			self.configInstance.saveAll()
+
 		if self.showConfig:
 			if self.wizard[currStep]["config"]["type"] == "dynamic":
 				eval("self." + self.wizard[currStep]["config"]["evaluation"])()
