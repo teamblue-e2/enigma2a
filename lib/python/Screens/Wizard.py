@@ -676,6 +676,7 @@ class Wizard(Screen):
 				self["config"].getCurrent()[1].setValue(callback)
 			print(self["config"].getCurrent()[1].value, list(self["config"].getCurrent()[1].choices))
 			self["config"].invalidate(self["config"].getCurrent())
+			self.configInstance.entryChanged()
 
 
 class WizardManager:
