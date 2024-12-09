@@ -378,13 +378,14 @@ class Wizard(Screen):
 						self.onShown.remove(self.updateValues)
 					self.configInstance.runAsync(self.finished)
 					return
-				elif self.configInstance.__class__.__name__ == "InstallWizard" and self.wizard[currStep]["config"]["args"] != 1:
+				elif self.configInstance.__class__.__name__ == "InstallWizard" and self.wizard[currStep]["config"]["args"] != '1' or not keySelect:
 					self.configInstance.run()
 					if hasattr(self.configInstance, "doNextStep") and not self.configInstance.doNextStep:
 						return
 				elif keySelect:
 					self.currentConfigIndex = self["config"].getCurrentIndex()
 					self.configInstance.keySelect()
+					self.configInstance.entryChanged()
 					return
 		self.finished()
 
