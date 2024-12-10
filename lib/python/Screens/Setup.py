@@ -126,7 +126,7 @@ class Setup(ConfigListScreen, Screen, HelpableScreen):
 
 	def formatItemDescription(self, item, itemDescription):
 		itemDescription = itemDescription.replace("%s %s", "%s %s" % (BoxInfo.getItem("MachineBrand", ""), BoxInfo.getItem("MachineName", "")))
-		if config.usage.setupShowDefault.value:
+		if config.usage.setupShowDefault.value != "no":
 			spacer = "\n" if config.usage.setupShowDefault.value == "newline" else "  "
 			itemDefault = item.toDisplayString(item.default)
 			itemDescription = _("%s%s(Default: %s)") % (itemDescription, spacer, itemDefault) if itemDescription and itemDescription != " " else _("Default: '%s'.") % itemDefault
