@@ -323,7 +323,7 @@ class HdmiCec:
 
 	def standbyMessages(self):
 		if config.hdmicec.enabled.value:
-			if config.hdmicec.next_boxes_detect.value:
+			if config.hdmicec.next_boxes_detect.value or config.hdmicec.ethernet_pc_used.value:
 				self.secondBoxActive()
 				self.delay.start(1000, True)
 			else:
