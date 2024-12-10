@@ -481,7 +481,7 @@ def InitUsageConfig():
 	config.usage.multiboot_order = ConfigYesNo(default=True)
 
 	config.usage.setupShowDefault = ConfigSelection(default="spaces", choices=[
-		("", _("Don't show default")),
+		("no", _("Don't show default")),
 		("spaces", _("Show default after description")),
 		("newline", _("Show default on new line"))
 	])
