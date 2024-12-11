@@ -13,11 +13,12 @@ class Console(Screen):
 			<widget name="text" position="0,0" size="550,400" font="Console;14" />
 		</screen>"""
 
-	def __init__(self, session, title="Console", cmdlist=None, finishedCallback=None, closeOnSuccess=False, showStartStopText=True, skin=None):
+	def __init__(self, session, title="Console", cmdlist=None, finishedCallback=None, closeOnSuccess=False, alwaysClose=False, showStartStopText=True, skin=None):
 		Screen.__init__(self, session)
 
 		self.finishedCallback = finishedCallback
 		self.closeOnSuccess = closeOnSuccess
+		self.alwaysClose = alwaysClose
 		self.showStartStopText = showStartStopText
 		if skin:
 			self.skinName = [skin, "Console"]
@@ -89,6 +90,8 @@ class Console(Screen):
 			if self.finishedCallback is not None:
 				self.finishedCallback()
 			if not self.errorOcurred and self.closeOnSuccess:
+				self.closeConsole()
+			if self.alwaysClose:
 				self.closeConsole()
 			else:
 				self["text"].appendText(_("\nPress OK or Exit to close!"))
