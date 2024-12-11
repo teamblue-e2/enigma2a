@@ -95,7 +95,7 @@ class SelectImage(Screen):
 
 		def checkModels(imageFile):
 			for model in self.models:
-				if '-%s-' % model or '-%_' % model in imagefile:
+				if '-%s-' % model in imageFile or '-%s_' % model in imageFile:
 					return True
 			return False
 
@@ -484,7 +484,7 @@ class FlashImage(Screen):
 
 	def cleanUp(self):
 		Console().ePopen('umount %s' % self.tmp_dir)
-		Console().ePopen('rm /tmp/chroot.sh /tmp/groups.txt /tmp/groups.txt /tmp/installed-list.txt self.tmp_dir')
+		Console().ePopen('rm /tmp/chroot.sh /tmp/groups.txt /tmp/groups.txt /tmp/installed-list.txt; rmdir %s' % self.tmp_dir)
 
 	def flashPostAction(self, retVal=True):
 		if retVal:
