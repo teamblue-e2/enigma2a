@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 import os
 import time
+from pickle import dump, load
 from Plugins.Plugin import PluginDescriptor
 from Screens.Console import Console
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
+from Screens.Setup import Setup
 from Screens.Standby import TryQuitMainloop
 from Screens.Opkg import Opkg
 from Screens.SoftwareUpdate import UpdatePlugin
@@ -41,9 +43,6 @@ from .ImageWizard import ImageWizard
 from .BackupRestore import BackupSelection, RestoreMenu, BackupScreen, RestoreScreen, getBackupPath, getOldBackupPath, getBackupFilename
 from .BackupRestore import InitConfig as BackupRestore_InitConfig
 from .SoftwareTools import iSoftwareTools
-
-import six
-from six.moves.cPickle import dump, load
 
 config.plugins.configurationbackup = BackupRestore_InitConfig()
 config.plugins.softwaremanager = ConfigSubsection()
@@ -331,48 +330,12 @@ class UpdatePluginMenu(Screen):
 			self.session.open(RestoreScreen, runRestore=True)
 
 
-class SoftwareManagerSetup(ConfigListScreen, Screen):
 
-	skin = """
-		<screen name="SoftwareManagerSetup" position="center,center" size="560,440" title="SoftwareManager setup">
-			<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
-			<ePixmap pixmap="buttons/green.png" position="140,0" size="140,40" alphatest="on" />
-			<ePixmap pixmap="buttons/yellow.png" position="280,0" size="140,40" alphatest="on" />
-			<ePixmap pixmap="buttons/blue.png" position="420,0" size="140,40" alphatest="on" />
-			<widget source="key_red" render="Label" position="0,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />
-			<widget source="key_green" render="Label" position="140,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />
-			<widget source="key_yellow" render="Label" position="280,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#a08500" transparent="1" />
-			<widget source="key_blue" render="Label" position="420,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#18188b" transparent="1" />
-			<widget name="config" position="5,50" size="550,350" scrollbarMode="showOnDemand" />
-			<ePixmap pixmap="div-h.png" position="0,400" zPosition="1" size="560,2" />
-			<widget source="introduction" render="Label" position="5,410" size="550,30" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />
-		</screen>"""
 
-	def __init__(self, session, skin_path=None):
-		Screen.__init__(self, session)
-		self.skin_path = skin_path
-		if self.skin_path is None:
-			self.skin_path = resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/SoftwareManager")
-
-		self.onChangedEntry = []
+class SoftwareManagerSetup(Setup):
+	def __init__(self, session):
+		Setup.__init__(self, session, None)
 		self.setTitle(_("Software manager setup"))
-		self.overwriteConfigfilesEntry = None
-
-		self.list = []
-		ConfigListScreen.__init__(self, self.list, session=session, on_change=self.changedEntry)
-
-		self["actions"] = ActionMap(["SetupActions", "MenuActions"],
-			{
-				"cancel": self.keyCancel,
-				"save": self.apply,
-				"menu": self.closeRecursive,
-			}, -2)
-
-		self["key_red"] = StaticText(_("Cancel"))
-		self["key_green"] = StaticText(_("OK"))
-		self["key_yellow"] = StaticText()
-		self["key_blue"] = StaticText()
-		self["introduction"] = StaticText()
 
 		self.createSetup()
 
@@ -387,49 +350,6 @@ class SoftwareManagerSetup(ConfigListScreen, Screen):
 		self["config"].list = self.list
 		self["config"].l.setSeperation(400)
 		self["config"].l.setList(self.list)
-		if not self.selectionChanged in self["config"].onSelectionChanged:
-			self["config"].onSelectionChanged.append(self.selectionChanged)
-		self.selectionChanged()
-
-	def selectionChanged(self):
-		if self["config"].getCurrent() == self.overwriteConfigfilesEntry:
-			self["introduction"].setText(_("Overwrite configuration files during software update?"))
-		else:
-			self["introduction"].setText("")
-
-	def newConfig(self):
-		pass
-
-	def keyLeft(self):
-		ConfigListScreen.keyLeft(self)
-
-	def keyRight(self):
-		ConfigListScreen.keyRight(self)
-
-	def confirm(self, confirmed):
-		if not confirmed:
-			print("not confirmed")
-			return
-		else:
-			self.keySave()
-			plugins.clearPluginList()
-			plugins.readPluginList(resolveFilename(SCOPE_PLUGINS))
-
-	def apply(self):
-		self.session.openWithCallback(self.confirm, MessageBox, _("Use these settings?"), MessageBox.TYPE_YESNO, timeout=20, default=True)
-
-	def cancelConfirm(self, result):
-		if not result:
-			return
-		for x in self["config"].list:
-			x[1].cancel()
-		self.close()
-
-	def keyCancel(self):
-		if self["config"].isChanged():
-			self.session.openWithCallback(self.cancelConfirm, MessageBox, _("Really close without saving settings?"), MessageBox.TYPE_YESNO, timeout=20, default=True)
-		else:
-			self.close()
 
 
 class SoftwareManagerInfo(Screen):
@@ -457,11 +377,10 @@ class SoftwareManagerInfo(Screen):
 			<widget source="introduction" render="Label" position="5,410" size="550,30" zPosition="10" font="Regular;21" halign="center" valign="center" backgroundColor="#25062748" transparent="1" />
 		</screen>"""
 
-	def __init__(self, session, skin_path=None, mode=None, submode=None):
+	def __init__(self, session, skin_path=None, mode=None):
 		Screen.__init__(self, session)
 		self.setTitle(_("Softwaremanager information"))
 		self.mode = mode
-		self.submode = submode
 		self.skin_path = skin_path
 		if self.skin_path is None:
 			self.skin_path = resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/SoftwareManager")
