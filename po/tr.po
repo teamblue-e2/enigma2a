@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 teamBlue (Apachi70)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 12:25+0200\n"
+"POT-Creation-Date: 2024-12-13 15:34+0100\n"
 "PO-Revision-Date: 2024-06-17 18:05+0200\n"
 "Last-Translator: Apachi70 (Openatv),(Teamblue) <teamblue@online.de,openatv@gmail.com>\n"
 "Language-Team: teamblue@t-online.de(apachi70)\n"
@@ -144,6 +144,10 @@ msgstr " (TV)"
 
 msgid " (auto detection)"
 msgstr " (otomatik algılama)"
+
+#, fuzzy
+msgid " (circular LNB)"
+msgstr "Dairesel LNB kullan"
 
 msgid " (disabled)"
 msgstr " (devre dışı)"
@@ -339,6 +343,11 @@ msgid "%d subdirectory"
 msgid_plural "%d subdirectories"
 msgstr[0] "%d alt rehber"
 
+#, fuzzy, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "haftalık"
+
 #, python-format
 msgid "%d wireless network found!"
 msgid_plural "%d wireless networks found!"
@@ -511,6 +520,11 @@ msgstr "* = Yeniden başlatılmalı"
 msgid "* Only available if more than one interface is active."
 msgstr "* Yalnızca birden fazla arayüz olduğunda kullanılabilir."
 
+#, fuzzy
+msgctxt "Text list separator"
+msgid ", "
+msgstr "  "
+
 msgid "-NO SERVICE\n"
 msgstr "-SERVİS YOK\n"
 
@@ -535,6 +549,10 @@ msgstr "/var dizini"
 
 msgid "0"
 msgstr "0"
+
+#, fuzzy
+msgid "0 minutes"
+msgstr "%d dakika"
 
 msgid "1"
 msgstr "1"
@@ -672,19 +690,14 @@ msgstr "Kayıt süresi dolmuş. Alıcı kapatılacak Şimdi Kapatılsın mı?"
 msgid "A configuration file (%s) has been modified since it was installed. Would you like to keep the modified version?"
 msgstr "Yüklendikten bu yana yapılandırma dosyası (%s) değiştirilmiştir. Değişiklikleri korumak istiyor musunuz?"
 
-#, python-format
-msgid ""
-"A configuration file (%s) was modified since Installation.\n"
-"Do you want to keep your version?"
-msgstr ""
-"Kurulumdan sonra (%s) yapılandırma dosyası değiştirilmiş.\n"
-"Kendi dosyanızı tutmak istiyor musunuz?"
-
 msgid "A file from media is in use!"
 msgstr "Medyadan bir dosya kullanılıyor!"
 
 msgid "A graphical EPG for all services of a specific bouquet"
 msgstr "Belirli bir buketin tüm hizmetleri için bir grafiksel EPG"
+
+msgid "A highlight on the remote control image shows which button the help refers to. If more than one button performs the indicated function, more than one highlight will be shown. Text below the list indicates whether the function is for a long press of the button(s)."
+msgstr ""
 
 #, python-format
 msgid ""
@@ -754,6 +767,9 @@ msgstr "AAC kod çevrimi"
 msgid "AAC+ downmix"
 msgstr "AAC+ downmix"
 
+msgid "ABOUT"
+msgstr ""
+
 msgid "AC3"
 msgstr "AC3"
 
@@ -772,6 +788,12 @@ msgstr "AFP Kurulumu"
 msgid "AGC:"
 msgstr "AGC:"
 
+msgid "ARROWLEFT"
+msgstr ""
+
+msgid "ARROWRIGHT"
+msgstr ""
+
 msgid "ASPECT key"
 msgstr "ASPECT key"
 
@@ -780,6 +802,12 @@ msgstr "ASS dosyası"
 
 msgid "ATSC provider"
 msgstr "ATSC sağlayıcı"
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "AUTOTIMER"
+msgstr ""
 
 msgid "Abort"
 msgstr "Vazgeç"
@@ -1086,6 +1114,9 @@ msgstr "Neredeyse… "
 
 msgid "Alpha"
 msgstr "Saydamlık"
+
+msgid "Alphabetical under headings"
+msgstr ""
 
 msgid "Alphanumeric"
 msgstr "Alfanümerik"
@@ -1472,6 +1503,9 @@ msgstr "Azerbeycan"
 msgid "B"
 msgstr "B"
 
+msgid "BACK"
+msgstr ""
+
 msgid "BDMV Bludisc (HDTV titles only)"
 msgstr "BDMV Blu Disk (HDTV başlıkları yalnızca)"
 
@@ -1486,6 +1520,15 @@ msgstr "BER:"
 
 msgid "BLUDISC RECORDABLE"
 msgstr "BLU DİSK kaydebilen"
+
+msgid "BLUE"
+msgstr ""
+
+msgid "BOUQUET+"
+msgstr ""
+
+msgid "BOUQUET-"
+msgstr ""
 
 msgid "Back"
 msgstr "Geri"
@@ -1591,6 +1634,10 @@ msgstr "Temel ayarlar"
 
 msgid "Basque"
 msgstr "Bask"
+
+#, fuzzy
+msgid "Before sending the command to switch the TV to standby, the receiver tests if PC connected to TV is in standby. If it is not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
+msgstr "Alıcı, TV'yi bekleme moduna geçirme komutunu göndermeden önce, TV'ye bağlı tüm diğer cihazların bekleme modunda olup olmadığını test eder. Değillerse, TV'ye 'bekleme' komutu yerine 'kaynak etkin değil' komutu gönderilecektir."
 
 msgid "Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
 msgstr "Alıcı, TV'yi bekleme moduna geçirme komutunu göndermeden önce, TV'ye bağlı tüm diğer cihazların bekleme modunda olup olmadığını test eder. Değillerse, TV'ye 'bekleme' komutu yerine 'kaynak etkin değil' komutu gönderilecektir."
@@ -1704,11 +1751,18 @@ msgstr "Bosna Hersek"
 msgid "Botswana"
 msgstr "Botsvana"
 
+#, fuzzy
+msgid "Bottom"
+msgstr "alt"
+
 msgid "Bouvet Island"
 msgstr "Bouvet Adası"
 
 msgid "Brazil"
 msgstr "Brezilya"
+
+msgid "Brief help information for buttons in your current context."
+msgstr ""
 
 msgid "Brightness"
 msgstr "Parlaklık"
@@ -1766,6 +1820,11 @@ msgstr "HDMI EDID kontrolünü atlayın"
 msgid "C"
 msgstr "C"
 
+#, fuzzy
+msgctxt "Abbreviation of \"Configurable\""
+msgid "C"
+msgstr "C"
+
 msgid "C-Band"
 msgstr "C-Bant"
 
@@ -1802,6 +1861,10 @@ msgstr "CI yuvası: "
 
 msgid "CIHelper Setup"
 msgstr "CIHelper Kurulumu"
+
+#, fuzzy
+msgid "CONTEXT"
+msgstr "METİN"
 
 msgid "CPU priority for script execution"
 msgstr "Script çalıştırma için CPU önceliği"
@@ -2199,6 +2262,9 @@ msgstr "Kilitlenme ve hata ayıklama günlükleri için konum seçin."
 msgid "Choose the option to correct invalid EPG data."
 msgstr "Geçersiz EPG verilerini düzeltme seçeneğini seçin."
 
+msgid "Choose the order in which items are displayed in Help windows"
+msgstr ""
+
 msgid "Choose whether AAC sound tracks should be transcoded."
 msgstr "AAC ses yollarının kod dönüştürülüp dönüştürülmeyeceğini seçin."
 
@@ -2396,7 +2462,8 @@ msgstr "Yeni zamanlayıcılar için varsayılan türü yapılandırın."
 msgid "Configure for how long the infobar will remain visible after activation."
 msgstr "Bilgi çubuğu görünme süresini ayarla."
 
-msgid "Configure for how many minutes finished events should remain visible in the EPG. Useful when you need information about an event which has just finished, or has been delayed."
+#, fuzzy
+msgid "Configure how long finished events should remain visible in the EPG. Useful when you need information about an event which has just finished, or has been delayed (or for plugins that support catchup)."
 msgstr "Biten olaylar EPG de kaç dakika görünmeli.  Kullanışlı, biten veya ertelenmiş bir olay hakkında bilgi gerektiğinde."
 
 msgid "Configure how many channels are shown in the selection list."
@@ -2866,6 +2933,12 @@ msgstr "Çakışan zamanlayıcı nedeniyle %s kaydedilemedi"
 msgid "Could not record due to invalid service %s"
 msgstr "Geçersiz hizmet %s nedeniyle kayıt bulunamadı"
 
+msgid "Could not retrieve basic bouquets files"
+msgstr ""
+
+msgid "Could not retrieve the remote support files"
+msgstr ""
+
 msgid "Country"
 msgstr "Ülke"
 
@@ -3035,6 +3108,9 @@ msgstr "DHCP kapalı"
 
 msgid "DLNA support"
 msgstr "DLNA desteği"
+
+msgid "DOWN"
+msgstr ""
 
 msgid "DTS"
 msgstr "DTS"
@@ -3363,6 +3439,14 @@ msgstr "DVB-T için yedek uzak alıcının hedefi"
 msgid "Details for plugin: "
 msgstr "Eklentinin ayrıntıları: "
 
+#, fuzzy
+msgid "Detect PC before standby"
+msgstr "Beklemeden önce sonraki cihazi bul"
+
+#, python-format
+msgid "Detect box%s via LAN"
+msgstr ""
+
 msgid "Detect next boxes before standby"
 msgstr "Beklemeden önce sonraki cihazi bul"
 
@@ -3681,9 +3765,6 @@ msgstr "Bu koleksiyonu oluşturmak istiyor musunuz?"
 msgid "Do you want to quit the overscan wizard?"
 msgstr "Overscan sihirbazı çıkmak istiyor musunuz?"
 
-msgid "Do you want to reboot your Receiver?"
-msgstr "Alıcıyı yeniden başlatmak istiyor musunuz?"
-
 msgid "Do you want to reboot your receiver?"
 msgstr "Alıcıyı yeniden başlatmak istiyor musunuz?"
 
@@ -3707,9 +3788,6 @@ msgstr "Farklı bir arayüzü seçmek istiyor musunuz?"
 
 msgid "Do you want to update the package:\n"
 msgstr "Paketi güncellemek istiyor musunuz:\n"
-
-msgid "Do you want to update your Receiver?"
-msgstr "Alıcıyı güncellemek istiyor musunuz?"
 
 msgid "Do you want to update your receiver?"
 msgstr "Alıcıyı güncellemek istiyor musunuz?"
@@ -3749,10 +3827,6 @@ msgstr "Zap ve zamanlayıcı kaldırmayın"
 
 msgid "Done"
 msgstr "Tamam"
-
-#, python-format
-msgid "Done - Installed or upgraded %d packages"
-msgstr "Tamam - %d paket yükseltildi veya kuruldu"
 
 #, python-format
 msgid "Done - Installed, updated or removed %d package (%s)"
@@ -3822,6 +3896,9 @@ msgstr "E"
 msgid "ECM Info"
 msgstr "ECM Bilgisi"
 
+msgid "EJECTCD"
+msgstr ""
+
 msgid "EMC Cover Selecter"
 msgstr "EMC Kapak Seçici"
 
@@ -3836,6 +3913,12 @@ msgstr "EMC menüsü"
 
 msgid "ENABLE DISABLE PLUGIN IF U WANT IT"
 msgstr "ETKİN DEVRE DIŞ"
+
+msgid "END"
+msgstr ""
+
+msgid "ENTER"
+msgstr ""
 
 msgid "EPG"
 msgstr "EPG"
@@ -3867,9 +3950,15 @@ msgstr "EPG:"
 msgid "EPGRefresh Configuration"
 msgstr "EPGRefresh Yapılandırması"
 
+msgid "EPGSETUP"
+msgstr ""
+
 #, python-format
 msgid "ERROR - failed to scan (%s)!"
 msgstr "HATA - arama başarısız (%s)!"
+
+msgid "EXIT"
+msgstr ""
 
 msgid "East"
 msgstr "Doğu"
@@ -4499,6 +4588,16 @@ msgstr "Hareketsizlik durumunu göz ardı etmek için ekstra başlangıç zaman�
 msgid "FAILED"
 msgstr "BAŞARISIZ OLDU"
 
+msgid "FASTFORWARD"
+msgstr ""
+
+#, fuzzy
+msgid "FAV"
+msgstr "FTA"
+
+msgid "FAVORITES"
+msgstr ""
+
 msgid "FBC SCR (Unicable/JESS)"
 msgstr "FBC SCR (Unicable / JESS)"
 
@@ -4541,6 +4640,9 @@ msgstr "FEC:"
 
 msgid "FIFO"
 msgstr "FIFO"
+
+msgid "FORWARD"
+msgstr ""
 
 msgid "FTA"
 msgstr "FTA"
@@ -4792,6 +4894,9 @@ msgstr "İnce hareket"
 msgid "Finetune"
 msgstr "İnce ayar"
 
+msgid "Finetune the auto DiSEqC order to in your situation the satellites could be found faster."
+msgstr ""
+
 msgid "Finished"
 msgstr "Tamamlandı"
 
@@ -4867,8 +4972,22 @@ msgstr ""
 "Flaş Image başarılı\n"
 "%s"
 
+#, fuzzy
+msgid "Flat alphabetical"
+msgstr "düz alfabetik"
+
+msgid "Flat by key group on remote"
+msgstr ""
+
+#, fuzzy
+msgid "Flat by position on remote"
+msgstr "Son pozisyonunda"
+
 msgid "Following tasks will be done after you press OK!"
 msgstr "Belirtilen görevler OK tuşuna basmanızın ardından işleme alınacak!"
+
+msgid "For detection next receivers use ethernet LAN instead HDMI-CEC protocol."
+msgstr ""
 
 msgid "Force legacy signal stats"
 msgstr "Eski sinyal istatistiklerini zorla"
@@ -5014,6 +5133,9 @@ msgstr "GB"
 
 msgid "GBAspectRatioSwitchSetup"
 msgstr "GBAspectRatioSwitchSetup"
+
+msgid "GREEN"
+msgstr ""
 
 msgid "GUI Build: "
 msgstr "Arayüz Yapısı: "
@@ -5283,8 +5405,17 @@ msgstr "YARDIM"
 msgid "HI-cleanup for external subtitles"
 msgstr "Harici altyazılar için HI-cleanup"
 
+msgid "HISTORY"
+msgstr ""
+
 msgid "HLG support"
 msgstr "HLG desteği"
+
+msgid "HOME"
+msgstr ""
+
+msgid "HOMEPAGE"
+msgstr ""
 
 msgid "Haiti"
 msgstr "Haiti"
@@ -5343,6 +5474,14 @@ msgstr "İbranice"
 
 msgid "Height"
 msgstr "Yükseklik"
+
+#, fuzzy
+msgid "Help"
+msgstr "MPHelp"
+
+#, fuzzy
+msgid "Help Screen"
+msgstr "Ekranı dondur"
 
 msgid "Helps setting up your signal"
 msgstr "Sinyalin ayarlanmasına yardımcı olur"
@@ -5470,6 +5609,10 @@ msgstr "BİLGİ"
 msgid "INS"
 msgstr "INS"
 
+#, fuzzy
+msgid "IP"
+msgstr "IP:"
+
 msgid "IP address"
 msgstr "IP adresi"
 
@@ -5496,6 +5639,9 @@ msgstr "İzlanda"
 
 msgid "Icons"
 msgstr "Simgeler"
+
+msgid "If an action is user-configurable, its help entry will be flagged (C)"
+msgstr ""
 
 msgid "If disabled, underline characters in file and directory names are not shown and are replaced with spaces."
 msgstr "Devre dışı bırakılırsa, dosya ve dizin adlarındaki altı çizili karakterler gösterilmez ve boşluklarla değiştirilir."
@@ -6109,14 +6255,31 @@ msgstr "Kuveyt"
 msgid "Kyrgyzstan"
 msgstr "Kırgızistan"
 
+#, fuzzy
+msgid "LAN"
+msgstr "LNB"
+
 msgid "LAN adapter"
 msgstr "LAN adaptörü"
 
 msgid "LAN connection"
 msgstr "LAN bağlantısı"
 
+msgid "LEFT"
+msgstr ""
+
+msgid "LIST"
+msgstr ""
+
 msgid "LNB"
 msgstr "LNB"
+
+msgid "LOSTLOCK"
+msgstr ""
+
+#, fuzzy
+msgid "Label not defined"
+msgstr "Tanımlanmamış"
 
 msgid "Language"
 msgstr "Dil"
@@ -6339,6 +6502,10 @@ msgstr "Uzun dosya adı"
 msgid "Long key press"
 msgstr "Tuşa uzun basarak"
 
+#, fuzzy
+msgid "Long press: "
+msgstr "Tuşa uzun basarak"
+
 msgid "Longitude"
 msgstr "Boylam"
 
@@ -6375,6 +6542,9 @@ msgstr "MAC:"
 msgid "MB"
 msgstr "MB"
 
+msgid "MEDIA"
+msgstr ""
+
 msgid "MENU"
 msgstr "MENÜ"
 
@@ -6395,6 +6565,9 @@ msgstr "MPHelp"
 
 msgid "MSN Weather City Name"
 msgstr "MSN Hava Durumu Şehir Adı"
+
+msgid "MUTE"
+msgstr ""
 
 msgid "Macao"
 msgstr "Macao"
@@ -6952,6 +7125,10 @@ msgstr "Kullanılamaz"
 msgid "NEXT"
 msgstr "SONRAKİ"
 
+#, fuzzy
+msgid "NEXTSONG"
+msgstr "SONRAKİ"
+
 msgid "NFS Setup"
 msgstr "NFS Kurulumu"
 
@@ -6996,6 +7173,9 @@ msgstr "Namibya"
 
 msgid "Nauru"
 msgstr "Nauru"
+
+msgid "Navigate up/down with UP/DOWN buttons and page up/down with LEFT/RIGHT. EXIT to return to the help screen. OK to perform the action described in the currently highlighted help."
+msgstr ""
 
 msgid "Nepal"
 msgstr "Nepal"
@@ -7099,6 +7279,10 @@ msgctxt "now/next: 'next' event label"
 msgid "Next"
 msgstr "Sonrakini Oynat"
 
+#, fuzzy
+msgid "Next Wizard"
+msgstr "Ağ kurulum sihirbazı"
+
 msgid "Next day starts at"
 msgstr "Ertesi gün başlıyor"
 
@@ -7200,9 +7384,6 @@ msgstr "Uygun ağ bağlantısı yok."
 
 msgid "No networks found"
 msgstr "Ağ bulunamadı"
-
-msgid "No packages were upgraded yet. So you can check your network and try again."
-msgstr "Hiç bir paketleri henüz yükseltememiş. Yani ağınızı kontrol edebilirsiniz ve yeniden deneyin."
 
 msgid "No priority"
 msgstr "Öncelik yok"
@@ -7378,9 +7559,6 @@ msgstr ""
 msgid "Nothing to scan! Setup your tuner and try again."
 msgstr "Taranacak bir şey yok! Tunerinizi kurun ve tekrar deneyin."
 
-msgid "Nothing to upgrade"
-msgstr "Yükseltilecek birşey yok"
-
 msgid "Now"
 msgstr "Şimdi"
 
@@ -7423,6 +7601,9 @@ msgstr "Tamam, güncelleme işleminde bana rehberlik yap"
 
 msgid "ONID"
 msgstr "ONID"
+
+msgid "OPTION"
+msgstr ""
 
 msgid "OSD - fb"
 msgstr "OSD - fb"
@@ -7583,59 +7764,36 @@ msgstr "Diğer Görüntüler"
 msgid "Other Subtitles & lang"
 msgstr "Diğer altyazılar & uzun"
 
+msgid "Other buttons will jump to the help for that button, if there is help."
+msgstr ""
+
+#, fuzzy
+msgid "Other functions"
+msgstr "ileri eğitim"
+
 msgid "Overall progress:"
 msgstr "Genel ilerleme:"
 
 msgid "Overscan wizard"
 msgstr "Fazla tarama Sihirbazı"
 
-msgid "Overwrite Bootlogo Files ?"
-msgstr "Bootlogo dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite Driver Files ?"
-msgstr "Sürücü dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite Emu Files ?"
-msgstr "Emu dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite Picon Files ?"
-msgstr "Picon dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite Setting Files ?"
-msgstr "Setting dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite Spinner Files ?"
-msgstr "Spinner dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite bootlogo files during software upgrade?"
-msgstr "Yazılım yükseltme sırasında bootlogo dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite configuration files during software upgrade?"
-msgstr "Yazılım yükseltme sırasında yapılandırma dosyaları üzerine yazılsın mı?"
-
 msgid "Overwrite configuration files?"
 msgstr "Konfigürasyon dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite driver files during software upgrade?"
-msgstr "Yazılım yükseltme sırasında driver dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite picon files during software upgrade?"
-msgstr "Yazılım yükseltme sırasında picon dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite setting files (channellist) during software upgrade?"
-msgstr "Yazılım yükseltme sırasında ayar (kanallistesi) dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite softcam files during software upgrade?"
-msgstr "Yazılım yükseltme sırasında softcam dosyaları üzerine yazılsın mı?"
-
-msgid "Overwrite spinner files during software upgrade?"
-msgstr "Yazılım yükseltme sırasında spinner dosyaları üzerine yazılsın mı?"
 
 msgid "Owner:"
 msgstr "Sahip:"
 
+msgid "PAGEDOWN"
+msgstr ""
+
+msgid "PAGEUP"
+msgstr ""
+
 msgid "PAL"
 msgstr "PAL"
+
+msgid "PAUSE"
+msgstr ""
 
 msgid "PCR PID"
 msgstr "PCR PID"
@@ -7661,6 +7819,15 @@ msgstr "Ön paneldeki PIP"
 msgid "PIP with OSD"
 msgstr "OSD ile PIP"
 
+msgid "PLAY"
+msgstr ""
+
+msgid "PLAYLIST"
+msgstr ""
+
+msgid "PLAYPAUSE"
+msgstr ""
+
 msgid "PLP ID"
 msgstr "PLP ID"
 
@@ -7670,11 +7837,23 @@ msgstr "PLS Kodu"
 msgid "PLS Mode"
 msgstr "PLS Modu"
 
+msgid "PLUGIN"
+msgstr ""
+
 msgid "PMT PID"
 msgstr "PMT PID"
 
+msgid "PORTAL"
+msgstr ""
+
 msgid "POT-Creation Date"
 msgstr "POT-Oluşturma Tarihi"
+
+msgid "POWER"
+msgstr ""
+
+msgid "POWER2"
+msgstr ""
 
 msgid "PPanel"
 msgstr "PPanel"
@@ -7682,11 +7861,16 @@ msgstr "PPanel"
 msgid "PREVIOUS"
 msgstr "ÖNCEKİ"
 
+#, fuzzy
+msgid "PREVIOUSSONG"
+msgstr "ÖNCEKİ"
+
+#, fuzzy
+msgid "PVR"
+msgstr "OVR"
+
 msgid "Package list update"
 msgstr "Paket listesi güncelleniyor"
-
-msgid "Packages"
-msgstr "Paketler"
 
 msgid "Packages to update"
 msgstr "Güncellenecek paketler"
@@ -8455,8 +8639,15 @@ msgstr "Önizleme menüsü"
 msgid "Preview selected channel"
 msgstr "Seçili kanalı önizle"
 
+msgid "Previous Wizard"
+msgstr ""
+
 msgid "Primary DNS"
 msgstr "Birincil DNS"
+
+#, fuzzy
+msgid "Prime Time"
+msgstr "Yoğun zaman"
 
 msgid "Prime time"
 msgstr "Yoğun zaman"
@@ -8610,14 +8801,33 @@ msgstr "Uzaktan kumanda ile hızlı geçiş"
 msgid "Quick zap"
 msgstr "Hızlı kanal değiştirme"
 
+msgid "RADIO"
+msgstr ""
+
 msgid "REC"
 msgstr "REC"
+
+msgid "RECALL"
+msgstr ""
+
+msgid "RECORD"
+msgstr ""
+
+#, fuzzy
+msgid "RED"
+msgstr "REC"
+
+msgid "REWIND"
+msgstr ""
 
 msgid "RF output"
 msgstr "RF çıkışı"
 
 msgid "RGB"
 msgstr "RGB"
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "Radio"
 msgstr "Radyo"
@@ -9244,6 +9454,10 @@ msgstr "Ruanda"
 msgid "SABnzbd Setup"
 msgstr "SABnzbd Kurulumu"
 
+#, fuzzy
+msgid "SAT"
+msgstr "KA-SAT"
+
 msgid "SATPI Setup"
 msgstr "SATPI Kurulumu"
 
@@ -9259,8 +9473,23 @@ msgstr "SCR JESS"
 msgid "SCR Unicable"
 msgstr "SCR Unicable"
 
+msgid "SCREEN"
+msgstr ""
+
+msgid "SETUP"
+msgstr ""
+
+msgid "SHIFT: "
+msgstr ""
+
 msgid "SINGLE LAYER DVD"
 msgstr "TEK KATMAN DVD"
+
+msgid "SLEEP"
+msgstr ""
+
+msgid "SLOW"
+msgstr ""
 
 msgid "SNR"
 msgstr "SNR"
@@ -9279,6 +9508,15 @@ msgstr "SSA dosyası"
 
 msgid "SSID:"
 msgstr "SSID:"
+
+msgid "STOP"
+msgstr ""
+
+msgid "SUBTITLE"
+msgstr ""
+
+msgid "SUSPEND"
+msgstr ""
 
 msgid "Saint Barthelemy"
 msgstr "Aziz Barthelemy"
@@ -9677,9 +9915,6 @@ msgstr "Hizmet Seç"
 msgid "Select Softcam"
 msgstr "Softcam'i seçin"
 
-msgid "Select Software Update"
-msgstr "Yazılım Güncelleme Seç"
-
 msgid "Select a LCD skin"
 msgstr "Bir LCD dış görünümü seçin"
 
@@ -9773,9 +10008,6 @@ msgstr "Uydu çanağının nasıl ayarlandığını seçin. sabit çanak, tek LN
 
 msgid "Select how you want your receiver to keep the correct time, either from the DVB transponder, or from the internet using NTP. Or use Auto, which will favour using NTP, but will fall back to transponder time when no internet connection is available."
 msgstr "Alıcınızın doğru zamanı nasıl tutmasını istediğinizi seçin; DVB aktarıcıdan veya NTP kullanarak internetten. Veya NTP'yi kullanmayı tercih edecek, ancak internet bağlantısı olmadığında aktarıcı zamanına geri dönecek olan Otomatik'i kullanın."
-
-msgid "Select how your box will upgrade."
-msgstr "Alıcının nasıl yükseltileceğini seçin."
 
 msgid "Select image"
 msgstr "Image Seç"
@@ -10145,6 +10377,9 @@ msgstr "Arşiv modunu ayarla (644)"
 msgid "Set as startup service"
 msgstr "Başlangıç hizmeti olarak ayarla"
 
+msgid "Set auto DiSEqC search order"
+msgstr ""
+
 msgid "Set blocktimes by weekday"
 msgstr "Hafta içi günlerine blok zamanlarını ayarla"
 
@@ -10492,9 +10727,6 @@ msgstr "Filmleri göster"
 
 msgid "Show multi channel EPG"
 msgstr "Çoklu kanal EPG göster"
-
-msgid "Show new Packages"
-msgstr "Yeni Paketleri Göster"
 
 msgid "Show next picture"
 msgstr "Sonraki resmi göster"
@@ -10947,6 +11179,10 @@ msgstr "Sıralama varsayılan ve çıkmak için liste?"
 
 msgid "Sort list:"
 msgstr "Sıralama listesi:"
+
+#, fuzzy
+msgid "Sort order for help screen"
+msgstr "Kurulum girişleri için sıralama düzeni"
 
 msgid "Sort order for menu entries"
 msgstr "Menü girişleri için sırala"
@@ -11536,6 +11772,12 @@ msgstr "T2MI RAW modu"
 msgid "TEXT"
 msgstr "METİN"
 
+msgid "TIMER"
+msgstr ""
+
+msgid "TIMESHIFT"
+msgstr ""
+
 #. TRANSLATORS: Add here whatever should be shown in the "translator" about screen, up to 6 lines (use \n for newline)
 #. Don't translate TRANSLATOR_INFO to show '(N/A)'
 msgid "TRANSLATOR_INFO"
@@ -11552,6 +11794,9 @@ msgstr "TUNER:"
 
 msgid "TUNING"
 msgstr "TUNING"
+
+msgid "TV"
+msgstr ""
 
 msgid "TV physical address report"
 msgstr "TV fiziksel adres raporu"
@@ -11767,6 +12012,9 @@ msgstr ""
 
 msgid "The number of steps to change the volume on the device the keys are forwarded to."
 msgstr "Tuşların iletildiği cihazdaki ses seviyesini değiştirmek için gereken adım sayısı."
+
+msgid "The order and grouping of the help information list can be controlled using MENU>Setup>User Interface>Settings>Sort order for help screen."
+msgstr ""
 
 msgid ""
 "The overscan wizard has been completed.\n"
@@ -12407,6 +12655,10 @@ msgstr "Toneburst A/B"
 msgid "Tonga"
 msgstr "Tonga"
 
+#, fuzzy
+msgid "Top"
+msgstr "İki"
+
 msgid "Top and bottom"
 msgstr "Üst ve alt"
 
@@ -12586,6 +12838,9 @@ msgstr "Tür:"
 msgid "UNKNOWN"
 msgstr "BİLİNMEYEN"
 
+msgid "UP"
+msgstr ""
+
 msgid "URL"
 msgstr "Adres"
 
@@ -12631,12 +12886,6 @@ msgstr ""
 "Katılımsız güncelleme devam ediyor\n"
 "Lütfen %s%s cihazınız yeniden başlayana kadar bekleyin\n"
 "Bu bir kaç dakika alabilir"
-
-msgid "Unattended upgrade without GUI"
-msgstr "GUI olmadan Katılımsız yükseltme"
-
-msgid "Unattended upgrade without GUI and reboot system"
-msgstr "GUI ve sistemi yeniden başlat olmadan Katılımsız yükseltme"
 
 msgid "Uncover dashed flickering line for this service"
 msgstr "Bu hizmet için kesikli titrek çizgi ortaya çıkar"
@@ -12774,18 +13023,6 @@ msgstr "Yazılım kataloğu güncelleniyor"
 msgid "Upgrade (Backup, Flash & Restore All)"
 msgstr "Yükseltme (Yedekleme, Flash ve Tümünü Geri Yükleme)"
 
-msgid "Upgrade and ask to reboot"
-msgstr "Güncelle ve yeniden başlatmak için sor"
-
-msgid "Upgrade finished."
-msgstr "Yükseltme tamamlandı."
-
-msgid "Upgrade with GUI"
-msgstr "Grafiksel arayüz ile yükseltme"
-
-msgid "Upgrading"
-msgstr "Güncelleme"
-
 msgid "Upper case"
 msgstr "Büyük harf"
 
@@ -12909,9 +13146,6 @@ msgstr "Temel özellikleri ayarlamak için sihirbazı kullanın"
 msgid "Use these input device settings?"
 msgstr "Bu giriş cihazının ayarlarını kullan?"
 
-msgid "Use these settings?"
-msgstr "Bu ayarları kullan?"
-
 msgid "Use this video enhancement settings?"
 msgstr "Düzenlediğiniz görüntü iyileştirme ayarları kullanılsın mı?"
 
@@ -12979,6 +13213,12 @@ msgstr "Özbekistan"
 msgid "VCR scart"
 msgstr "VCR scart"
 
+msgid "VIDEO"
+msgstr ""
+
+msgid "VKEY"
+msgstr ""
+
 msgid "VLAN connection"
 msgstr "VLAN bağlantısı"
 
@@ -12991,8 +13231,17 @@ msgstr "VLC Sunucu Listesi"
 msgid "VMGM (intro trailer)"
 msgstr "VMGM (tanıtım filmi)"
 
+msgid "VMODE"
+msgstr ""
+
 msgid "VOB file"
 msgstr "VOB dosyası"
+
+msgid "VOL+"
+msgstr ""
+
+msgid "VOL-"
+msgstr ""
 
 msgid "Valid ONID/TSID look at www.lyngsat.com..."
 msgstr "Geçerli ONID/TSID görünümü www.lyngsat.com'da..."
@@ -13183,8 +13432,14 @@ msgstr "Ses yükselt"
 msgid "W"
 msgstr "W"
 
+msgid "WAKEUP"
+msgstr ""
+
 msgid "WARNING!"
 msgstr "UYARI!"
+
+msgid "WIZTV"
+msgstr ""
 
 msgid "WLAN connection"
 msgstr "WLAN bağlantısı"
@@ -13197,6 +13452,9 @@ msgstr "İnternet (WOL) bekleme"
 
 msgid "WSS on 4:3"
 msgstr "WSS 4:3"
+
+msgid "WWW"
+msgstr ""
 
 msgid "Wait please while creating swapfile..."
 msgstr "Swapfile oluşturulurken lütfen bekleyin..."
@@ -13715,6 +13973,9 @@ msgstr "/Tmp/positionersetup.log dosyasına yaz"
 msgid "XBox 360 support"
 msgstr "XBox 360 desteği"
 
+msgid "YELLOW"
+msgstr ""
+
 msgid "YES"
 msgstr "EVET"
 
@@ -13990,9 +14251,6 @@ msgstr ""
 "PIN kodunuz 0000'dır. Bu varsayılan PIN kodudur ve ebeveyn kontrolünü devre dışı bırakır!\n"
 "\n"
 
-msgid "Your Receiver isn't connected to the internet properly. Please check it and try again."
-msgstr "Alıcı internete uygun şekilde bağlı değil.Lütfen kontrol edin ve tekrar deneyin."
-
 msgid "Your backup succeeded. We will now continue to explain the further upgrade process."
 msgstr "Yedek başarıyla alındı. Şimdi güncelleme işlemine devam edeceğiz."
 
@@ -14011,31 +14269,6 @@ msgstr ""
 "Ön işlemciniz güncellenecek\n"
 "Lütfen yeniden başlatılana %s %s kadar bekleyin\n"
 "Bu bir kaç dakika alabilir"
-
-msgid ""
-"Your image is out of date!\n"
-"\n"
-"After such a long time, there is a risk that your Receiver will not\n"
-"boot after online-update, or will show disfunction in running Image.\n"
-"\n"
-"A new flash will increase the stability\n"
-"\n"
-"An online update is done at your own risk !!\n"
-"\n"
-"\n"
-"Do you still want to update?"
-msgstr ""
-"Image güncel değil!\n"
-"\n"
-"Böyle uzun bir zamandan sonra, bir risk olduğunu da Alıcı olmaz\n"
-"Online-güncellemeden sonra çizme, veya Resmi çalışan disfonksiyon gösterecektir.\n"
-"\n"
-"Yeni bir flaş istikrarı artıracak\n"
-"\n"
-"Bir online güncelleme kendi riski altında yapılır !!\n"
-"\n"
-"\n"
-"Hala güncelleştirmek istiyor musunuz?"
 
 msgid ""
 "Your internet connection is not working!\n"
@@ -14106,6 +14339,9 @@ msgstr ""
 "USB WLAN çubuğunu taktığınızdan emin olun?\n"
 "\n"
 "Lütfen sonraki adımda yapmak istediğiniz işlemi seçin."
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "Zambia"
 msgstr "Zambiya"
@@ -14763,6 +14999,10 @@ msgstr "tıp / fizyoloji / psikoloji"
 msgid "menu"
 msgstr "menü"
 
+#, fuzzy
+msgid "min"
+msgstr " dk"
+
 msgid "mins"
 msgstr "dakika"
 
@@ -15000,6 +15240,10 @@ msgstr "lütfen bekleyin..."
 
 msgid "popular culture/traditional arts"
 msgstr "popüler kültür / geleneksel sanatlar"
+
+#, fuzzy
+msgid "port"
+msgstr "Spor"
 
 msgid "pre-school children's program"
 msgstr "okul öncesi çocuk programı"
@@ -15446,9 +15690,6 @@ msgstr "evet (beslemeleri tut)"
 
 msgid "yes, but not in multi selections"
 msgstr "evet, ancak çoklu seçimlerde değil"
-
-msgid "your Receiver might be unusable now. Please consult the manual for further assistance before rebooting your Receiver."
-msgstr "alıcınız şu anda kullanılamaz durumda olabilir. Alıcınızı yeniden başlatmadan önce lütfen daha fazla yardım için kılavuza bakın."
 
 msgid "zap"
 msgstr "zap"

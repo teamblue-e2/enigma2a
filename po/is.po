@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 teamBlue\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 12:25+0200\n"
+"POT-Creation-Date: 2024-12-13 15:34+0100\n"
 "PO-Revision-Date: 2011-05-07 12:23+0200\n"
 "Last-Translator: Baldur <bsveinsson@gmail.com>\n"
 "Language-Team: Polar Team/LT Team <baddi@oreind.is>\n"
@@ -141,6 +141,11 @@ msgstr ""
 
 msgid " (auto detection)"
 msgstr ""
+
+#
+#, fuzzy
+msgid " (circular LNB)"
+msgstr "hringpólun vinstri"
 
 msgid " (disabled)"
 msgstr ""
@@ -363,6 +368,13 @@ msgstr[1] "/var mappa"
 
 #
 #, fuzzy, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "vikulega"
+msgstr[1] "vikulega"
+
+#
+#, fuzzy, python-format
 msgid "%d wireless network found!"
 msgid_plural "%d wireless networks found!"
 msgstr[0] "fann 1 þráðlaust net!"
@@ -550,6 +562,10 @@ msgstr ""
 msgid "* Only available if more than one interface is active."
 msgstr "* Bara virkt ef að fleira en eitt tæki er virkt."
 
+msgctxt "Text list separator"
+msgid ", "
+msgstr ""
+
 msgid "-NO SERVICE\n"
 msgstr ""
 
@@ -579,6 +595,11 @@ msgstr "byrjunar mappa"
 
 msgid "0"
 msgstr ""
+
+#
+#, fuzzy
+msgid "0 minutes"
+msgstr "%d min"
 
 msgid "1"
 msgstr ""
@@ -738,15 +759,6 @@ msgstr ""
 msgid "A configuration file (%s) has been modified since it was installed. Would you like to keep the modified version?"
 msgstr "Stillingaskrá (%s) er breytt síðan uppsetning var gerð. Viltu halda þinni útgáfu?"
 
-#
-#, python-format
-msgid ""
-"A configuration file (%s) was modified since Installation.\n"
-"Do you want to keep your version?"
-msgstr ""
-"Stillingaskrá (%s) er breytt síðan uppsetning var gerð.\n"
-"Viltu halda þinni útgáfu?"
-
 msgid "A file from media is in use!"
 msgstr ""
 
@@ -754,6 +766,9 @@ msgstr ""
 #, fuzzy
 msgid "A graphical EPG for all services of a specific bouquet"
 msgstr "Myndrænt EPG fyrir allar rásir á ákveðnum rásavendi"
+
+msgid "A highlight on the remote control image shows which button the help refers to. If more than one button performs the indicated function, more than one highlight will be shown. Text below the list indicates whether the function is for a long press of the button(s)."
+msgstr ""
 
 #
 #, python-format
@@ -833,6 +848,9 @@ msgstr "Þýðing:"
 msgid "AAC+ downmix"
 msgstr ""
 
+msgid "ABOUT"
+msgstr ""
+
 msgid "AC3"
 msgstr ""
 
@@ -855,6 +873,12 @@ msgstr "Uppsetning"
 msgid "AGC:"
 msgstr ""
 
+msgid "ARROWLEFT"
+msgstr ""
+
+msgid "ARROWRIGHT"
+msgstr ""
+
 msgid "ASPECT key"
 msgstr ""
 
@@ -865,6 +889,12 @@ msgstr ""
 #, fuzzy
 msgid "ATSC provider"
 msgstr "bæta við sendanda"
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "AUTOTIMER"
+msgstr ""
 
 #
 msgid "Abort"
@@ -1261,6 +1291,9 @@ msgstr ""
 
 msgid "Alpha"
 msgstr "Gegnsæi"
+
+msgid "Alphabetical under headings"
+msgstr ""
 
 #
 #, fuzzy
@@ -1709,6 +1742,9 @@ msgstr ""
 msgid "B"
 msgstr "B"
 
+msgid "BACK"
+msgstr ""
+
 msgid "BDMV Bludisc (HDTV titles only)"
 msgstr ""
 
@@ -1723,6 +1759,15 @@ msgid "BER:"
 msgstr "BER:"
 
 msgid "BLUDISC RECORDABLE"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
+msgid "BOUQUET+"
+msgstr ""
+
+msgid "BOUQUET-"
 msgstr ""
 
 msgid "Back"
@@ -1841,6 +1886,9 @@ msgid "Basic settings"
 msgstr "Breyta stillingum"
 
 msgid "Basque"
+msgstr ""
+
+msgid "Before sending the command to switch the TV to standby, the receiver tests if PC connected to TV is in standby. If it is not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
 msgstr ""
 
 msgid "Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
@@ -1969,10 +2017,16 @@ msgstr "Mótorstýring"
 msgid "Botswana"
 msgstr ""
 
+msgid "Bottom"
+msgstr ""
+
 msgid "Bouvet Island"
 msgstr ""
 
 msgid "Brazil"
+msgstr ""
+
+msgid "Brief help information for buttons in your current context."
 msgstr ""
 
 msgid "Brightness"
@@ -2039,6 +2093,11 @@ msgstr ""
 msgid "C"
 msgstr "C"
 
+#, fuzzy
+msgctxt "Abbreviation of \"Configurable\""
+msgid "C"
+msgstr "C"
+
 msgid "C-Band"
 msgstr "C-Band"
 
@@ -2083,6 +2142,9 @@ msgstr "fann engin CI tengi"
 #, fuzzy
 msgid "CIHelper Setup"
 msgstr "Uppsetning"
+
+msgid "CONTEXT"
+msgstr ""
 
 msgid "CPU priority for script execution"
 msgstr ""
@@ -2482,6 +2544,9 @@ msgstr ""
 msgid "Choose the option to correct invalid EPG data."
 msgstr ""
 
+msgid "Choose the order in which items are displayed in Help windows"
+msgstr ""
+
 msgid "Choose whether AAC sound tracks should be transcoded."
 msgstr ""
 
@@ -2705,7 +2770,7 @@ msgstr "Stilla netkort"
 msgid "Configure for how long the infobar will remain visible after activation."
 msgstr ""
 
-msgid "Configure for how many minutes finished events should remain visible in the EPG. Useful when you need information about an event which has just finished, or has been delayed."
+msgid "Configure how long finished events should remain visible in the EPG. Useful when you need information about an event which has just finished, or has been delayed (or for plugins that support catchup)."
 msgstr ""
 
 #, fuzzy
@@ -3215,6 +3280,12 @@ msgstr "Gat ekki tekið upp vegna skörunar á tímastillingum %s"
 msgid "Could not record due to invalid service %s"
 msgstr "Gat ekki tekið upp vegna þess að rásin %s er ekki í lagi"
 
+msgid "Could not retrieve basic bouquets files"
+msgstr ""
+
+msgid "Could not retrieve the remote support files"
+msgstr ""
+
 msgid "Country"
 msgstr ""
 
@@ -3408,6 +3479,9 @@ msgstr ""
 #, fuzzy
 msgid "DLNA support"
 msgstr "ekki stutt"
+
+msgid "DOWN"
+msgstr ""
 
 msgid "DTS"
 msgstr ""
@@ -3819,6 +3893,15 @@ msgstr ""
 msgid "Details for plugin: "
 msgstr "Upplýsingar um íforrit:"
 
+#
+#, fuzzy
+msgid "Detect PC before standby"
+msgstr "Djúp biðstaða"
+
+#, python-format
+msgid "Detect box%s via LAN"
+msgstr ""
+
 msgid "Detect next boxes before standby"
 msgstr ""
 
@@ -4225,10 +4308,6 @@ msgstr "Viltu brenna þessa skráar safn á DVD disk?"
 msgid "Do you want to quit the overscan wizard?"
 msgstr "Ertu viss um að þú viljir hætta í ráðgjafanum?"
 
-#, fuzzy
-msgid "Do you want to reboot your Receiver?"
-msgstr "Viltu hlaða niður stýrikerfinu á %s ?"
-
 msgid "Do you want to reboot your receiver?"
 msgstr ""
 
@@ -4261,10 +4340,6 @@ msgstr "Viltu leita að rásum?"
 #, fuzzy
 msgid "Do you want to update the package:\n"
 msgstr "Viltu uppfæra pakkann:\n"
-
-#, fuzzy
-msgid "Do you want to update your Receiver?"
-msgstr "Viltu hlaða niður stýrikerfinu á %s ?"
 
 msgid "Do you want to update your receiver?"
 msgstr ""
@@ -4313,11 +4388,6 @@ msgstr ""
 
 msgid "Done"
 msgstr ""
-
-#
-#, fuzzy, python-format
-msgid "Done - Installed or upgraded %d packages"
-msgstr "Búin, setti inn, uppfærði eða tót út %d pakka með %d villum"
 
 #
 #, fuzzy, python-format
@@ -4396,6 +4466,9 @@ msgstr "E"
 msgid "ECM Info"
 msgstr "Upplýsingar"
 
+msgid "EJECTCD"
+msgstr ""
+
 #, fuzzy
 msgid "EMC Cover Selecter"
 msgstr "Staðsetning bíómynda"
@@ -4414,6 +4487,12 @@ msgid "EMC menu"
 msgstr "Aðalvalmynd"
 
 msgid "ENABLE DISABLE PLUGIN IF U WANT IT"
+msgstr ""
+
+msgid "END"
+msgstr ""
+
+msgid "ENTER"
 msgstr ""
 
 msgid "EPG"
@@ -4450,9 +4529,15 @@ msgstr ""
 msgid "EPGRefresh Configuration"
 msgstr "Stilling móttakara"
 
+msgid "EPGSETUP"
+msgstr ""
+
 #, python-format
 msgid "ERROR - failed to scan (%s)!"
 msgstr "VILLA - gat ekki leitað (%s)!"
+
+msgid "EXIT"
+msgstr ""
 
 #
 msgid "East"
@@ -5203,6 +5288,15 @@ msgstr ""
 msgid "FAILED"
 msgstr ""
 
+msgid "FASTFORWARD"
+msgstr ""
+
+msgid "FAV"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr ""
+
 #
 #, fuzzy
 msgid "FBC SCR (Unicable/JESS)"
@@ -5247,6 +5341,9 @@ msgid "FEC:"
 msgstr ""
 
 msgid "FIFO"
+msgstr ""
+
+msgid "FORWARD"
 msgstr ""
 
 msgid "FTA"
@@ -5538,6 +5635,9 @@ msgstr ""
 msgid "Finetune"
 msgstr "Fínstilla"
 
+msgid "Finetune the auto DiSEqC order to in your situation the satellites could be found faster."
+msgstr ""
+
 #
 msgid "Finished"
 msgstr "Búið"
@@ -5628,8 +5728,22 @@ msgid ""
 "%s"
 msgstr ""
 
+#
+#, fuzzy
+msgid "Flat alphabetical"
+msgstr "raða í stafrófsröð"
+
+msgid "Flat by key group on remote"
+msgstr ""
+
+msgid "Flat by position on remote"
+msgstr ""
+
 msgid "Following tasks will be done after you press OK!"
 msgstr "Eftirfarandi aðgerðir verða framkvæmdar eftir að þú ýtir á OK!"
+
+msgid "For detection next receivers use ethernet LAN instead HDMI-CEC protocol."
+msgstr ""
 
 msgid "Force legacy signal stats"
 msgstr ""
@@ -5802,6 +5916,9 @@ msgstr "RGB"
 #, fuzzy
 msgid "GBAspectRatioSwitchSetup"
 msgstr "Stærðarhlutfall"
+
+msgid "GREEN"
+msgstr ""
 
 msgid "GUI Build: "
 msgstr ""
@@ -6136,9 +6253,18 @@ msgstr ""
 msgid "HI-cleanup for external subtitles"
 msgstr ""
 
+msgid "HISTORY"
+msgstr ""
+
 #, fuzzy
 msgid "HLG support"
 msgstr "ekki stutt"
+
+msgid "HOME"
+msgstr ""
+
+msgid "HOMEPAGE"
+msgstr ""
 
 #
 #, fuzzy
@@ -6218,6 +6344,14 @@ msgstr ""
 #, fuzzy
 msgid "Height"
 msgstr "Hægri"
+
+msgid "Help"
+msgstr ""
+
+#
+#, fuzzy
+msgid "Help Screen"
+msgstr "Læsa rásum"
 
 msgid "Helps setting up your signal"
 msgstr ""
@@ -6370,6 +6504,9 @@ msgstr ""
 msgid "INS"
 msgstr ""
 
+msgid "IP"
+msgstr ""
+
 #
 #, fuzzy
 msgid "IP address"
@@ -6402,6 +6539,9 @@ msgid "Iceland"
 msgstr ""
 
 msgid "Icons"
+msgstr ""
+
+msgid "If an action is user-configurable, its help entry will be flagged (C)"
 msgstr ""
 
 msgid "If disabled, underline characters in file and directory names are not shown and are replaced with spaces."
@@ -7133,15 +7273,34 @@ msgstr ""
 
 #
 #, fuzzy
+msgid "LAN"
+msgstr "LNB"
+
+#
+#, fuzzy
 msgid "LAN adapter"
 msgstr "Netkort"
 
 msgid "LAN connection"
 msgstr "LAN tenging"
 
+msgid "LEFT"
+msgstr ""
+
+msgid "LIST"
+msgstr ""
+
 #
 msgid "LNB"
 msgstr "LNB"
+
+msgid "LOSTLOCK"
+msgstr ""
+
+#
+#, fuzzy
+msgid "Label not defined"
+msgstr "Stillt af notanda"
 
 #
 msgid "Language"
@@ -7431,6 +7590,11 @@ msgid "Long key press"
 msgstr "Ýtt lengi á hnapp"
 
 #
+#, fuzzy
+msgid "Long press: "
+msgstr "Ýtt lengi á hnapp"
+
+#
 msgid "Longitude"
 msgstr "Lengdargráða"
 
@@ -7475,6 +7639,9 @@ msgstr ""
 msgid "MB"
 msgstr "B"
 
+msgid "MEDIA"
+msgstr ""
+
 msgid "MENU"
 msgstr ""
 
@@ -7496,6 +7663,9 @@ msgid "MPHelp"
 msgstr ""
 
 msgid "MSN Weather City Name"
+msgstr ""
+
+msgid "MUTE"
 msgstr ""
 
 msgid "Macao"
@@ -8196,6 +8366,9 @@ msgstr "Ekki til"
 msgid "NEXT"
 msgstr ""
 
+msgid "NEXTSONG"
+msgstr ""
+
 #
 #, fuzzy
 msgid "NFS Setup"
@@ -8252,6 +8425,9 @@ msgid "Namibia"
 msgstr ""
 
 msgid "Nauru"
+msgstr ""
+
+msgid "Navigate up/down with UP/DOWN buttons and page up/down with LEFT/RIGHT. EXIT to return to the help screen. OK to perform the action described in the currently highlighted help."
 msgstr ""
 
 msgid "Nepal"
@@ -8385,6 +8561,10 @@ msgctxt "now/next: 'next' event label"
 msgid "Next"
 msgstr ""
 
+#, fuzzy
+msgid "Next Wizard"
+msgstr "Netkerfis ráðgjafi"
+
 msgid "Next day starts at"
 msgstr ""
 
@@ -8500,9 +8680,6 @@ msgstr "Engin nettenging virk."
 #
 msgid "No networks found"
 msgstr "Ekkert netkerfi fannst"
-
-msgid "No packages were upgraded yet. So you can check your network and try again."
-msgstr ""
 
 #
 #, fuzzy
@@ -8723,9 +8900,6 @@ msgstr ""
 "Ekkert til að leita!\n"
 "Stilltu inn móttakarann áður en að þú byrjar rása leit."
 
-msgid "Nothing to upgrade"
-msgstr ""
-
 #
 #, fuzzy
 msgid "Now"
@@ -8777,6 +8951,9 @@ msgstr "Leiðbeindu mér með uppfærsluna"
 
 msgid "ONID"
 msgstr "ONID"
+
+msgid "OPTION"
+msgstr ""
 
 msgid "OSD - fb"
 msgstr ""
@@ -8968,6 +9145,13 @@ msgstr "Forritun"
 msgid "Other Subtitles & lang"
 msgstr "Velja undirtexta"
 
+msgid "Other buttons will jump to the help for that button, if there is help."
+msgstr ""
+
+#, fuzzy
+msgid "Other functions"
+msgstr "Veldu stað fyrir afrit"
+
 #
 #, fuzzy
 msgid "Overall progress:"
@@ -8978,66 +9162,24 @@ msgid "Overscan wizard"
 msgstr "Netkerfis ráðgjafi"
 
 #, fuzzy
-msgid "Overwrite Bootlogo Files ?"
-msgstr "Skrifa yfir stillinga skrár ?"
-
-#, fuzzy
-msgid "Overwrite Driver Files ?"
-msgstr "Skrifa yfir stillinga skrár ?"
-
-#, fuzzy
-msgid "Overwrite Emu Files ?"
-msgstr "Skrifa yfir stillinga skrár ?"
-
-#, fuzzy
-msgid "Overwrite Picon Files ?"
-msgstr "Skrifa yfir stillinga skrár ?"
-
-#, fuzzy
-msgid "Overwrite Setting Files ?"
-msgstr "Skrifa yfir stillinga skrár ?"
-
-#, fuzzy
-msgid "Overwrite Spinner Files ?"
-msgstr "Skrifa yfir stillinga skrár ?"
-
-#, fuzzy
-msgid "Overwrite bootlogo files during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
-msgid "Overwrite configuration files during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
-#, fuzzy
 msgid "Overwrite configuration files?"
 msgstr "Skrifa yfir stillinga skrár ?"
 
-#, fuzzy
-msgid "Overwrite driver files during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
-#, fuzzy
-msgid "Overwrite picon files during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
-#, fuzzy
-msgid "Overwrite setting files (channellist) during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
-#, fuzzy
-msgid "Overwrite softcam files during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
-#, fuzzy
-msgid "Overwrite spinner files during software upgrade?"
-msgstr "Skrifa yfir stillinga skrár við hugbúnaðar uppfærslu?"
-
 msgid "Owner:"
+msgstr ""
+
+msgid "PAGEDOWN"
+msgstr ""
+
+msgid "PAGEUP"
 msgstr ""
 
 #
 msgid "PAL"
 msgstr "PAL"
+
+msgid "PAUSE"
+msgstr ""
 
 msgid "PCR PID"
 msgstr "PCR PID"
@@ -9065,6 +9207,15 @@ msgstr ""
 msgid "PIP with OSD"
 msgstr ""
 
+msgid "PLAY"
+msgstr ""
+
+msgid "PLAYLIST"
+msgstr ""
+
+msgid "PLAYPAUSE"
+msgstr ""
+
 msgid "PLP ID"
 msgstr ""
 
@@ -9076,10 +9227,22 @@ msgstr ""
 msgid "PLS Mode"
 msgstr "Hamur"
 
+msgid "PLUGIN"
+msgstr ""
+
 msgid "PMT PID"
 msgstr "PMT PID"
 
+msgid "PORTAL"
+msgstr ""
+
 msgid "POT-Creation Date"
+msgstr ""
+
+msgid "POWER"
+msgstr ""
+
+msgid "POWER2"
 msgstr ""
 
 msgid "PPanel"
@@ -9088,14 +9251,15 @@ msgstr ""
 msgid "PREVIOUS"
 msgstr ""
 
+msgid "PREVIOUSSONG"
+msgstr ""
+
+msgid "PVR"
+msgstr ""
+
 #
 msgid "Package list update"
 msgstr "Listi uppfærðra pakka"
-
-#
-#, fuzzy
-msgid "Packages"
-msgstr "Hugbúnaðarpakka stjóri"
 
 #
 #, fuzzy
@@ -10072,9 +10236,17 @@ msgstr "Forskoða valmynd"
 msgid "Preview selected channel"
 msgstr ""
 
+msgid "Previous Wizard"
+msgstr ""
+
 #
 msgid "Primary DNS"
 msgstr "Aðal DNS"
+
+#
+#, fuzzy
+msgid "Prime Time"
+msgstr "Eyða tímastillingu"
 
 #
 #, fuzzy
@@ -10260,10 +10432,27 @@ msgstr ""
 msgid "Quick zap"
 msgstr "Hraðstökk"
 
+msgid "RADIO"
+msgstr ""
+
 #
 #, fuzzy
 msgid "REC"
 msgstr "FEC"
+
+msgid "RECALL"
+msgstr ""
+
+msgid "RECORD"
+msgstr ""
+
+#
+#, fuzzy
+msgid "RED"
+msgstr "FEC"
+
+msgid "REWIND"
+msgstr ""
 
 #
 msgid "RF output"
@@ -10272,6 +10461,9 @@ msgstr "Loftnetsrás"
 #
 msgid "RGB"
 msgstr "RGB"
+
+msgid "RIGHT"
+msgstr ""
 
 msgid "Radio"
 msgstr ""
@@ -11094,6 +11286,9 @@ msgstr ""
 msgid "SABnzbd Setup"
 msgstr "Uppsetning"
 
+msgid "SAT"
+msgstr ""
+
 #
 #, fuzzy
 msgid "SATPI Setup"
@@ -11115,8 +11310,23 @@ msgstr ""
 msgid "SCR Unicable"
 msgstr "Unicable LNB"
 
+msgid "SCREEN"
+msgstr ""
+
+msgid "SETUP"
+msgstr ""
+
+msgid "SHIFT: "
+msgstr ""
+
 msgid "SINGLE LAYER DVD"
 msgstr "SINGLE LAYER DVD"
+
+msgid "SLEEP"
+msgstr ""
+
+msgid "SLOW"
+msgstr ""
 
 #
 #, fuzzy
@@ -11139,6 +11349,15 @@ msgstr ""
 #
 msgid "SSID:"
 msgstr "SSID:"
+
+msgid "STOP"
+msgstr ""
+
+msgid "SUBTITLE"
+msgstr ""
+
+msgid "SUSPEND"
+msgstr ""
 
 msgid "Saint Barthelemy"
 msgstr ""
@@ -11642,11 +11861,6 @@ msgstr "Veldu upphafs slóð til að breyta."
 
 #
 #, fuzzy
-msgid "Select Software Update"
-msgstr "Hugbúnaðar uppfærsla"
-
-#
-#, fuzzy
 msgid "Select a LCD skin"
 msgstr "Veldu mynd"
 
@@ -11771,9 +11985,6 @@ msgid "Select how the satellite dish is set up. i.e. fixed dish, single LNB, DiS
 msgstr ""
 
 msgid "Select how you want your receiver to keep the correct time, either from the DVB transponder, or from the internet using NTP. Or use Auto, which will favour using NTP, but will fall back to transponder time when no internet connection is available."
-msgstr ""
-
-msgid "Select how your box will upgrade."
 msgstr ""
 
 #
@@ -12251,6 +12462,9 @@ msgstr ""
 msgid "Set as startup service"
 msgstr "Skipta á rásum"
 
+msgid "Set auto DiSEqC search order"
+msgstr ""
+
 msgid "Set blocktimes by weekday"
 msgstr ""
 
@@ -12684,9 +12898,6 @@ msgid "Show movies"
 msgstr "sýna upplýsingalínu"
 
 msgid "Show multi channel EPG"
-msgstr ""
-
-msgid "Show new Packages"
 msgstr ""
 
 msgid "Show next picture"
@@ -13270,6 +13481,9 @@ msgid "Sort list to default and exit?"
 msgstr ""
 
 msgid "Sort list:"
+msgstr ""
+
+msgid "Sort order for help screen"
 msgstr ""
 
 msgid "Sort order for menu entries"
@@ -14023,6 +14237,12 @@ msgstr ""
 msgid "TEXT"
 msgstr ""
 
+msgid "TIMER"
+msgstr ""
+
+msgid "TIMESHIFT"
+msgstr ""
+
 #
 #. TRANSLATORS: Add here whatever should be shown in the "translator" about screen, up to 6 lines (use \n for newline)
 #. Don't translate TRANSLATOR_INFO to show '(N/A)'
@@ -14046,6 +14266,9 @@ msgid "TUNER:"
 msgstr ""
 
 msgid "TUNING"
+msgstr ""
+
+msgid "TV"
 msgstr ""
 
 msgid "TV physical address report"
@@ -14290,6 +14513,9 @@ msgstr ""
 "Vinsamlega settu hann inn."
 
 msgid "The number of steps to change the volume on the device the keys are forwarded to."
+msgstr ""
+
+msgid "The order and grouping of the help information list can be controlled using MENU>Setup>User Interface>Settings>Sort order for help screen."
 msgstr ""
 
 msgid ""
@@ -14983,6 +15209,11 @@ msgstr "Tón stýring A/B"
 msgid "Tonga"
 msgstr ""
 
+#
+#, fuzzy
+msgid "Top"
+msgstr "Tveir"
+
 msgid "Top and bottom"
 msgstr ""
 
@@ -15215,6 +15446,9 @@ msgstr "Gerð"
 msgid "UNKNOWN"
 msgstr ""
 
+msgid "UP"
+msgstr ""
+
 msgid "URL"
 msgstr ""
 
@@ -15260,12 +15494,6 @@ msgid ""
 "Unattended update in progress\n"
 "Please wait until your %s %s reboots\n"
 "This may take a few minutes"
-msgstr ""
-
-msgid "Unattended upgrade without GUI"
-msgstr ""
-
-msgid "Unattended upgrade without GUI and reboot system"
 msgstr ""
 
 msgid "Uncover dashed flickering line for this service"
@@ -15421,21 +15649,6 @@ msgstr "Uppfæri efnisyfirlit hugbúnaðar"
 msgid "Upgrade (Backup, Flash & Restore All)"
 msgstr ""
 
-msgid "Upgrade and ask to reboot"
-msgstr ""
-
-#
-#, fuzzy
-msgid "Upgrade finished."
-msgstr "Uppfæri"
-
-msgid "Upgrade with GUI"
-msgstr ""
-
-#
-msgid "Upgrading"
-msgstr "Uppfæri"
-
 msgid "Upper case"
 msgstr ""
 
@@ -15586,10 +15799,6 @@ msgstr "Nota álfinn til að setja upp grunnstillingar"
 msgid "Use these input device settings?"
 msgstr "Nota þessar stillingar fyrir inntaks tæki?"
 
-#, fuzzy
-msgid "Use these settings?"
-msgstr "Nota þessar stillingar?"
-
 #
 msgid "Use this video enhancement settings?"
 msgstr "Nota mynd endurbóta stillingar?"
@@ -15671,6 +15880,12 @@ msgstr ""
 msgid "VCR scart"
 msgstr "Vídeó scart"
 
+msgid "VIDEO"
+msgstr ""
+
+msgid "VKEY"
+msgstr ""
+
 #, fuzzy
 msgid "VLAN connection"
 msgstr "LAN tenging"
@@ -15685,7 +15900,16 @@ msgstr ""
 msgid "VMGM (intro trailer)"
 msgstr "VMGM (mynd sýnishorn)"
 
+msgid "VMODE"
+msgstr ""
+
 msgid "VOB file"
+msgstr ""
+
+msgid "VOL+"
+msgstr ""
+
+msgid "VOL-"
 msgstr ""
 
 msgid "Valid ONID/TSID look at www.lyngsat.com..."
@@ -15939,7 +16163,13 @@ msgstr "Styrkur"
 msgid "W"
 msgstr "W"
 
+msgid "WAKEUP"
+msgstr ""
+
 msgid "WARNING!"
+msgstr ""
+
+msgid "WIZTV"
 msgstr ""
 
 msgid "WLAN connection"
@@ -15956,6 +16186,9 @@ msgstr "ekki biðstaða"
 #
 msgid "WSS on 4:3"
 msgstr "WSS á 4:3"
+
+msgid "WWW"
+msgstr ""
 
 #
 #, fuzzy
@@ -16494,6 +16727,9 @@ msgstr ""
 msgid "XBox 360 support"
 msgstr "ekki stutt"
 
+msgid "YELLOW"
+msgstr ""
+
 msgid "YES"
 msgstr ""
 
@@ -16758,9 +16994,6 @@ msgstr ""
 msgid "Your PIN code is 0000. This is the default PIN code and it disables parental control!\n"
 msgstr ""
 
-msgid "Your Receiver isn't connected to the internet properly. Please check it and try again."
-msgstr ""
-
 #
 msgid "Your backup succeeded. We will now continue to explain the further upgrade process."
 msgstr "Það tókst að taka afrit. Nú höldum við áfram með uppfærsluna."
@@ -16777,20 +17010,6 @@ msgid ""
 "Your frontprocessor will be updated\n"
 "Please wait until your %s %s reboots\n"
 "This may take a few minutes"
-msgstr ""
-
-msgid ""
-"Your image is out of date!\n"
-"\n"
-"After such a long time, there is a risk that your Receiver will not\n"
-"boot after online-update, or will show disfunction in running Image.\n"
-"\n"
-"A new flash will increase the stability\n"
-"\n"
-"An online update is done at your own risk !!\n"
-"\n"
-"\n"
-"Do you still want to update?"
 msgstr ""
 
 #
@@ -16861,6 +17080,9 @@ msgstr ""
 "Ertu búinn að tengja þráðlausa USB stautinn?\n"
 "\n"
 "Vinsamlega veldu hvað þú vilt gera næst."
+
+msgid "ZOOM"
+msgstr ""
 
 msgid "Zambia"
 msgstr ""
@@ -17647,6 +17869,11 @@ msgid "menu"
 msgstr "valmynd"
 
 #
+#, fuzzy
+msgid "min"
+msgstr "%d min"
+
+#
 msgid "mins"
 msgstr "mín"
 
@@ -17942,6 +18169,9 @@ msgid "please wait..."
 msgstr "Vinsamlega bíðið..."
 
 msgid "popular culture/traditional arts"
+msgstr ""
+
+msgid "port"
 msgstr ""
 
 msgid "pre-school children's program"
@@ -18461,9 +18691,6 @@ msgid "yes (keep feeds)"
 msgstr "já (halda fæðirásum)"
 
 msgid "yes, but not in multi selections"
-msgstr ""
-
-msgid "your Receiver might be unusable now. Please consult the manual for further assistance before rebooting your Receiver."
 msgstr ""
 
 #
