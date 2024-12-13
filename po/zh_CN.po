@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 12:25+0200\n"
+"POT-Creation-Date: 2024-12-13 15:34+0100\n"
 "PO-Revision-Date: 2021-01-11 15:15+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -120,6 +120,9 @@ msgid " (TV)"
 msgstr ""
 
 msgid " (auto detection)"
+msgstr ""
+
+msgid " (circular LNB)"
 msgstr ""
 
 msgid " (disabled)"
@@ -328,6 +331,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
 msgid "%d wireless network found!"
 msgid_plural "%d wireless networks found!"
 msgstr[0] ""
@@ -495,6 +504,10 @@ msgstr ""
 msgid "* Only available if more than one interface is active."
 msgstr ""
 
+msgctxt "Text list separator"
+msgid ", "
+msgstr ""
+
 msgid "-NO SERVICE\n"
 msgstr ""
 
@@ -518,6 +531,9 @@ msgid "/var directory"
 msgstr ""
 
 msgid "0"
+msgstr ""
+
+msgid "0 minutes"
 msgstr ""
 
 msgid "1"
@@ -656,16 +672,13 @@ msgstr "机顶盒关机定时器命令触发了是否确定现在关机?"
 msgid "A configuration file (%s) has been modified since it was installed. Would you like to keep the modified version?"
 msgstr "配置文件(%s)已经变更. 是否要保留所做更改?"
 
-#, python-format
-msgid ""
-"A configuration file (%s) was modified since Installation.\n"
-"Do you want to keep your version?"
-msgstr ""
-
 msgid "A file from media is in use!"
 msgstr ""
 
 msgid "A graphical EPG for all services of a specific bouquet"
+msgstr ""
+
+msgid "A highlight on the remote control image shows which button the help refers to. If more than one button performs the indicated function, more than one highlight will be shown. Text below the list indicates whether the function is for a long press of the button(s)."
 msgstr ""
 
 #, python-format
@@ -727,6 +740,9 @@ msgstr ""
 msgid "AAC+ downmix"
 msgstr ""
 
+msgid "ABOUT"
+msgstr ""
+
 msgid "AC3"
 msgstr ""
 
@@ -745,6 +761,12 @@ msgstr ""
 msgid "AGC:"
 msgstr ""
 
+msgid "ARROWLEFT"
+msgstr ""
+
+msgid "ARROWRIGHT"
+msgstr ""
+
 msgid "ASPECT key"
 msgstr ""
 
@@ -752,6 +774,12 @@ msgid "ASS file"
 msgstr ""
 
 msgid "ATSC provider"
+msgstr ""
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "AUTOTIMER"
 msgstr ""
 
 msgid "Abort"
@@ -1058,6 +1086,9 @@ msgid "Almost there... "
 msgstr ""
 
 msgid "Alpha"
+msgstr ""
+
+msgid "Alphabetical under headings"
 msgstr ""
 
 msgid "Alphanumeric"
@@ -1429,6 +1460,9 @@ msgstr ""
 msgid "B"
 msgstr ""
 
+msgid "BACK"
+msgstr ""
+
 msgid "BDMV Bludisc (HDTV titles only)"
 msgstr ""
 
@@ -1442,6 +1476,15 @@ msgid "BER:"
 msgstr ""
 
 msgid "BLUDISC RECORDABLE"
+msgstr ""
+
+msgid "BLUE"
+msgstr ""
+
+msgid "BOUQUET+"
+msgstr ""
+
+msgid "BOUQUET-"
 msgstr ""
 
 msgid "Back"
@@ -1545,6 +1588,9 @@ msgid "Basic settings"
 msgstr ""
 
 msgid "Basque"
+msgstr ""
+
+msgid "Before sending the command to switch the TV to standby, the receiver tests if PC connected to TV is in standby. If it is not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
 msgstr ""
 
 msgid "Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
@@ -1659,10 +1705,16 @@ msgstr ""
 msgid "Botswana"
 msgstr ""
 
+msgid "Bottom"
+msgstr ""
+
 msgid "Bouvet Island"
 msgstr ""
 
 msgid "Brazil"
+msgstr ""
+
+msgid "Brief help information for buttons in your current context."
 msgstr ""
 
 msgid "Brightness"
@@ -1721,6 +1773,10 @@ msgstr ""
 msgid "C"
 msgstr ""
 
+msgctxt "Abbreviation of \"Configurable\""
+msgid "C"
+msgstr ""
+
 msgid "C-Band"
 msgstr ""
 
@@ -1756,6 +1812,9 @@ msgid "CI slot: "
 msgstr ""
 
 msgid "CIHelper Setup"
+msgstr ""
+
+msgid "CONTEXT"
 msgstr ""
 
 msgid "CPU priority for script execution"
@@ -2125,6 +2184,9 @@ msgstr ""
 msgid "Choose the option to correct invalid EPG data."
 msgstr ""
 
+msgid "Choose the order in which items are displayed in Help windows"
+msgstr ""
+
 msgid "Choose whether AAC sound tracks should be transcoded."
 msgstr ""
 
@@ -2322,7 +2384,7 @@ msgstr ""
 msgid "Configure for how long the infobar will remain visible after activation."
 msgstr ""
 
-msgid "Configure for how many minutes finished events should remain visible in the EPG. Useful when you need information about an event which has just finished, or has been delayed."
+msgid "Configure how long finished events should remain visible in the EPG. Useful when you need information about an event which has just finished, or has been delayed (or for plugins that support catchup)."
 msgstr ""
 
 msgid "Configure how many channels are shown in the selection list."
@@ -2791,6 +2853,12 @@ msgstr ""
 msgid "Could not record due to invalid service %s"
 msgstr ""
 
+msgid "Could not retrieve basic bouquets files"
+msgstr ""
+
+msgid "Could not retrieve the remote support files"
+msgstr ""
+
 msgid "Country"
 msgstr ""
 
@@ -2957,6 +3025,9 @@ msgid "DHCP is off"
 msgstr ""
 
 msgid "DLNA support"
+msgstr ""
+
+msgid "DOWN"
 msgstr ""
 
 msgid "DTS"
@@ -3286,6 +3357,13 @@ msgstr ""
 msgid "Details for plugin: "
 msgstr ""
 
+msgid "Detect PC before standby"
+msgstr ""
+
+#, python-format
+msgid "Detect box%s via LAN"
+msgstr ""
+
 msgid "Detect next boxes before standby"
 msgstr ""
 
@@ -3590,9 +3668,6 @@ msgstr ""
 msgid "Do you want to quit the overscan wizard?"
 msgstr ""
 
-msgid "Do you want to reboot your Receiver?"
-msgstr ""
-
 msgid "Do you want to reboot your receiver?"
 msgstr ""
 
@@ -3616,9 +3691,6 @@ msgid "Do you want to select a different skin?"
 msgstr ""
 
 msgid "Do you want to update the package:\n"
-msgstr ""
-
-msgid "Do you want to update your Receiver?"
 msgstr ""
 
 msgid "Do you want to update your receiver?"
@@ -3658,10 +3730,6 @@ msgid "Don't zap and remove timer"
 msgstr ""
 
 msgid "Done"
-msgstr ""
-
-#, python-format
-msgid "Done - Installed or upgraded %d packages"
 msgstr ""
 
 #, python-format
@@ -3731,6 +3799,9 @@ msgstr ""
 msgid "ECM Info"
 msgstr ""
 
+msgid "EJECTCD"
+msgstr ""
+
 msgid "EMC Cover Selecter"
 msgstr ""
 
@@ -3744,6 +3815,12 @@ msgid "EMC menu"
 msgstr ""
 
 msgid "ENABLE DISABLE PLUGIN IF U WANT IT"
+msgstr ""
+
+msgid "END"
+msgstr ""
+
+msgid "ENTER"
 msgstr ""
 
 msgid "EPG"
@@ -3776,8 +3853,14 @@ msgstr ""
 msgid "EPGRefresh Configuration"
 msgstr ""
 
+msgid "EPGSETUP"
+msgstr ""
+
 #, python-format
 msgid "ERROR - failed to scan (%s)!"
+msgstr ""
+
+msgid "EXIT"
 msgstr ""
 
 msgid "East"
@@ -4391,6 +4474,15 @@ msgstr ""
 msgid "FAILED"
 msgstr ""
 
+msgid "FASTFORWARD"
+msgstr ""
+
+msgid "FAV"
+msgstr ""
+
+msgid "FAVORITES"
+msgstr ""
+
 msgid "FBC SCR (Unicable/JESS)"
 msgstr ""
 
@@ -4426,6 +4518,9 @@ msgid "FEC:"
 msgstr ""
 
 msgid "FIFO"
+msgstr ""
+
+msgid "FORWARD"
 msgstr ""
 
 msgid "FTA"
@@ -4672,6 +4767,9 @@ msgstr ""
 msgid "Finetune"
 msgstr ""
 
+msgid "Finetune the auto DiSEqC order to in your situation the satellites could be found faster."
+msgstr ""
+
 msgid "Finished"
 msgstr ""
 
@@ -4743,7 +4841,19 @@ msgid ""
 "%s"
 msgstr ""
 
+msgid "Flat alphabetical"
+msgstr ""
+
+msgid "Flat by key group on remote"
+msgstr ""
+
+msgid "Flat by position on remote"
+msgstr ""
+
 msgid "Following tasks will be done after you press OK!"
+msgstr ""
+
+msgid "For detection next receivers use ethernet LAN instead HDMI-CEC protocol."
 msgstr ""
 
 msgid "Force legacy signal stats"
@@ -4889,6 +4999,9 @@ msgid "GB"
 msgstr ""
 
 msgid "GBAspectRatioSwitchSetup"
+msgstr ""
+
+msgid "GREEN"
 msgstr ""
 
 msgid "GUI Build: "
@@ -5157,7 +5270,16 @@ msgstr ""
 msgid "HI-cleanup for external subtitles"
 msgstr ""
 
+msgid "HISTORY"
+msgstr ""
+
 msgid "HLG support"
+msgstr ""
+
+msgid "HOME"
+msgstr ""
+
+msgid "HOMEPAGE"
 msgstr ""
 
 msgid "Haiti"
@@ -5216,6 +5338,12 @@ msgid "Hebrew"
 msgstr ""
 
 msgid "Height"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "Help Screen"
 msgstr ""
 
 msgid "Helps setting up your signal"
@@ -5344,6 +5472,9 @@ msgstr ""
 msgid "INS"
 msgstr ""
 
+msgid "IP"
+msgstr ""
+
 msgid "IP address"
 msgstr ""
 
@@ -5369,6 +5500,9 @@ msgid "Iceland"
 msgstr ""
 
 msgid "Icons"
+msgstr ""
+
+msgid "If an action is user-configurable, its help entry will be flagged (C)"
 msgstr ""
 
 msgid "If disabled, underline characters in file and directory names are not shown and are replaced with spaces."
@@ -5969,13 +6103,28 @@ msgstr ""
 msgid "Kyrgyzstan"
 msgstr ""
 
+msgid "LAN"
+msgstr ""
+
 msgid "LAN adapter"
 msgstr ""
 
 msgid "LAN connection"
 msgstr ""
 
+msgid "LEFT"
+msgstr ""
+
+msgid "LIST"
+msgstr ""
+
 msgid "LNB"
+msgstr ""
+
+msgid "LOSTLOCK"
+msgstr ""
+
+msgid "Label not defined"
 msgstr ""
 
 msgid "Language"
@@ -6200,6 +6349,9 @@ msgstr ""
 msgid "Long key press"
 msgstr ""
 
+msgid "Long press: "
+msgstr ""
+
 msgid "Longitude"
 msgstr ""
 
@@ -6236,6 +6388,9 @@ msgstr ""
 msgid "MB"
 msgstr ""
 
+msgid "MEDIA"
+msgstr ""
+
 msgid "MENU"
 msgstr ""
 
@@ -6255,6 +6410,9 @@ msgid "MPHelp"
 msgstr ""
 
 msgid "MSN Weather City Name"
+msgstr ""
+
+msgid "MUTE"
 msgstr ""
 
 msgid "Macao"
@@ -6813,6 +6971,9 @@ msgstr ""
 msgid "NEXT"
 msgstr ""
 
+msgid "NEXTSONG"
+msgstr ""
+
 msgid "NFS Setup"
 msgstr ""
 
@@ -6856,6 +7017,9 @@ msgid "Namibia"
 msgstr ""
 
 msgid "Nauru"
+msgstr ""
+
+msgid "Navigate up/down with UP/DOWN buttons and page up/down with LEFT/RIGHT. EXIT to return to the help screen. OK to perform the action described in the currently highlighted help."
 msgstr ""
 
 msgid "Nepal"
@@ -6960,6 +7124,9 @@ msgctxt "now/next: 'next' event label"
 msgid "Next"
 msgstr ""
 
+msgid "Next Wizard"
+msgstr ""
+
 msgid "Next day starts at"
 msgstr ""
 
@@ -7053,9 +7220,6 @@ msgid "No network connection available."
 msgstr ""
 
 msgid "No networks found"
-msgstr ""
-
-msgid "No packages were upgraded yet. So you can check your network and try again."
 msgstr ""
 
 msgid "No priority"
@@ -7222,9 +7386,6 @@ msgstr ""
 msgid "Nothing to scan! Setup your tuner and try again."
 msgstr ""
 
-msgid "Nothing to upgrade"
-msgstr ""
-
 msgid "Now"
 msgstr ""
 
@@ -7266,6 +7427,9 @@ msgid "OK, guide me through the upgrade process"
 msgstr ""
 
 msgid "ONID"
+msgstr ""
+
+msgid "OPTION"
 msgstr ""
 
 msgid "OSD - fb"
@@ -7427,58 +7591,34 @@ msgstr ""
 msgid "Other Subtitles & lang"
 msgstr ""
 
+msgid "Other buttons will jump to the help for that button, if there is help."
+msgstr ""
+
+msgid "Other functions"
+msgstr ""
+
 msgid "Overall progress:"
 msgstr ""
 
 msgid "Overscan wizard"
 msgstr ""
 
-msgid "Overwrite Bootlogo Files ?"
-msgstr ""
-
-msgid "Overwrite Driver Files ?"
-msgstr ""
-
-msgid "Overwrite Emu Files ?"
-msgstr ""
-
-msgid "Overwrite Picon Files ?"
-msgstr ""
-
-msgid "Overwrite Setting Files ?"
-msgstr ""
-
-msgid "Overwrite Spinner Files ?"
-msgstr ""
-
-msgid "Overwrite bootlogo files during software upgrade?"
-msgstr ""
-
-msgid "Overwrite configuration files during software upgrade?"
-msgstr ""
-
 msgid "Overwrite configuration files?"
-msgstr ""
-
-msgid "Overwrite driver files during software upgrade?"
-msgstr ""
-
-msgid "Overwrite picon files during software upgrade?"
-msgstr ""
-
-msgid "Overwrite setting files (channellist) during software upgrade?"
-msgstr ""
-
-msgid "Overwrite softcam files during software upgrade?"
-msgstr ""
-
-msgid "Overwrite spinner files during software upgrade?"
 msgstr ""
 
 msgid "Owner:"
 msgstr ""
 
+msgid "PAGEDOWN"
+msgstr ""
+
+msgid "PAGEUP"
+msgstr ""
+
 msgid "PAL"
+msgstr ""
+
+msgid "PAUSE"
 msgstr ""
 
 msgid "PCR PID"
@@ -7505,6 +7645,15 @@ msgstr ""
 msgid "PIP with OSD"
 msgstr ""
 
+msgid "PLAY"
+msgstr ""
+
+msgid "PLAYLIST"
+msgstr ""
+
+msgid "PLAYPAUSE"
+msgstr ""
+
 msgid "PLP ID"
 msgstr ""
 
@@ -7514,10 +7663,22 @@ msgstr ""
 msgid "PLS Mode"
 msgstr ""
 
+msgid "PLUGIN"
+msgstr ""
+
 msgid "PMT PID"
 msgstr ""
 
+msgid "PORTAL"
+msgstr ""
+
 msgid "POT-Creation Date"
+msgstr ""
+
+msgid "POWER"
+msgstr ""
+
+msgid "POWER2"
 msgstr ""
 
 msgid "PPanel"
@@ -7526,10 +7687,13 @@ msgstr ""
 msgid "PREVIOUS"
 msgstr ""
 
-msgid "Package list update"
+msgid "PREVIOUSSONG"
 msgstr ""
 
-msgid "Packages"
+msgid "PVR"
+msgstr ""
+
+msgid "Package list update"
 msgstr ""
 
 msgid "Packages to update"
@@ -8285,7 +8449,13 @@ msgstr ""
 msgid "Preview selected channel"
 msgstr ""
 
+msgid "Previous Wizard"
+msgstr ""
+
 msgid "Primary DNS"
+msgstr ""
+
+msgid "Prime Time"
 msgstr ""
 
 msgid "Prime time"
@@ -8432,13 +8602,31 @@ msgstr ""
 msgid "Quick zap"
 msgstr ""
 
+msgid "RADIO"
+msgstr ""
+
 msgid "REC"
+msgstr ""
+
+msgid "RECALL"
+msgstr ""
+
+msgid "RECORD"
+msgstr ""
+
+msgid "RED"
+msgstr ""
+
+msgid "REWIND"
 msgstr ""
 
 msgid "RF output"
 msgstr ""
 
 msgid "RGB"
+msgstr ""
+
+msgid "RIGHT"
 msgstr ""
 
 msgid "Radio"
@@ -9061,6 +9249,9 @@ msgstr ""
 msgid "SABnzbd Setup"
 msgstr ""
 
+msgid "SAT"
+msgstr ""
+
 msgid "SATPI Setup"
 msgstr ""
 
@@ -9076,7 +9267,22 @@ msgstr ""
 msgid "SCR Unicable"
 msgstr ""
 
+msgid "SCREEN"
+msgstr ""
+
+msgid "SETUP"
+msgstr ""
+
+msgid "SHIFT: "
+msgstr ""
+
 msgid "SINGLE LAYER DVD"
+msgstr ""
+
+msgid "SLEEP"
+msgstr ""
+
+msgid "SLOW"
 msgstr ""
 
 msgid "SNR"
@@ -9095,6 +9301,15 @@ msgid "SSA file"
 msgstr ""
 
 msgid "SSID:"
+msgstr ""
+
+msgid "STOP"
+msgstr ""
+
+msgid "SUBTITLE"
+msgstr ""
+
+msgid "SUSPEND"
 msgstr ""
 
 msgid "Saint Barthelemy"
@@ -9495,9 +9710,6 @@ msgstr ""
 msgid "Select Softcam"
 msgstr ""
 
-msgid "Select Software Update"
-msgstr ""
-
 msgid "Select a LCD skin"
 msgstr ""
 
@@ -9590,9 +9802,6 @@ msgid "Select how the satellite dish is set up. i.e. fixed dish, single LNB, DiS
 msgstr ""
 
 msgid "Select how you want your receiver to keep the correct time, either from the DVB transponder, or from the internet using NTP. Or use Auto, which will favour using NTP, but will fall back to transponder time when no internet connection is available."
-msgstr ""
-
-msgid "Select how your box will upgrade."
 msgstr ""
 
 msgid "Select image"
@@ -9955,6 +10164,9 @@ msgstr ""
 msgid "Set as startup service"
 msgstr ""
 
+msgid "Set auto DiSEqC search order"
+msgstr ""
+
 msgid "Set blocktimes by weekday"
 msgstr ""
 
@@ -10299,9 +10511,6 @@ msgid "Show movies"
 msgstr ""
 
 msgid "Show multi channel EPG"
-msgstr ""
-
-msgid "Show new Packages"
 msgstr ""
 
 msgid "Show next picture"
@@ -10749,6 +10958,9 @@ msgid "Sort list to default and exit?"
 msgstr ""
 
 msgid "Sort list:"
+msgstr ""
+
+msgid "Sort order for help screen"
 msgstr ""
 
 msgid "Sort order for menu entries"
@@ -11332,6 +11544,12 @@ msgstr ""
 msgid "TEXT"
 msgstr ""
 
+msgid "TIMER"
+msgstr ""
+
+msgid "TIMESHIFT"
+msgstr ""
+
 #. TRANSLATORS: Add here whatever should be shown in the "translator" about screen, up to 6 lines (use \n for newline)
 #. Don't translate TRANSLATOR_INFO to show '(N/A)'
 msgid "TRANSLATOR_INFO"
@@ -11347,6 +11565,9 @@ msgid "TUNER:"
 msgstr ""
 
 msgid "TUNING"
+msgstr ""
+
+msgid "TV"
 msgstr ""
 
 msgid "TV physical address report"
@@ -11540,6 +11761,9 @@ msgid ""
 msgstr ""
 
 msgid "The number of steps to change the volume on the device the keys are forwarded to."
+msgstr ""
+
+msgid "The order and grouping of the help information list can be controlled using MENU>Setup>User Interface>Settings>Sort order for help screen."
 msgstr ""
 
 msgid ""
@@ -12128,6 +12352,9 @@ msgstr ""
 msgid "Tonga"
 msgstr ""
 
+msgid "Top"
+msgstr ""
+
 msgid "Top and bottom"
 msgstr ""
 
@@ -12307,6 +12534,9 @@ msgstr ""
 msgid "UNKNOWN"
 msgstr ""
 
+msgid "UP"
+msgstr ""
+
 msgid "URL"
 msgstr ""
 
@@ -12348,12 +12578,6 @@ msgid ""
 "Unattended update in progress\n"
 "Please wait until your %s %s reboots\n"
 "This may take a few minutes"
-msgstr ""
-
-msgid "Unattended upgrade without GUI"
-msgstr ""
-
-msgid "Unattended upgrade without GUI and reboot system"
 msgstr ""
 
 msgid "Uncover dashed flickering line for this service"
@@ -12492,18 +12716,6 @@ msgstr ""
 msgid "Upgrade (Backup, Flash & Restore All)"
 msgstr ""
 
-msgid "Upgrade and ask to reboot"
-msgstr ""
-
-msgid "Upgrade finished."
-msgstr ""
-
-msgid "Upgrade with GUI"
-msgstr ""
-
-msgid "Upgrading"
-msgstr ""
-
 msgid "Upper case"
 msgstr ""
 
@@ -12627,9 +12839,6 @@ msgstr ""
 msgid "Use these input device settings?"
 msgstr ""
 
-msgid "Use these settings?"
-msgstr ""
-
 msgid "Use this video enhancement settings?"
 msgstr ""
 
@@ -12697,6 +12906,12 @@ msgstr ""
 msgid "VCR scart"
 msgstr ""
 
+msgid "VIDEO"
+msgstr ""
+
+msgid "VKEY"
+msgstr ""
+
 msgid "VLAN connection"
 msgstr ""
 
@@ -12709,7 +12924,16 @@ msgstr ""
 msgid "VMGM (intro trailer)"
 msgstr ""
 
+msgid "VMODE"
+msgstr ""
+
 msgid "VOB file"
+msgstr ""
+
+msgid "VOL+"
+msgstr ""
+
+msgid "VOL-"
 msgstr ""
 
 msgid "Valid ONID/TSID look at www.lyngsat.com..."
@@ -12896,7 +13120,13 @@ msgstr ""
 msgid "W"
 msgstr ""
 
+msgid "WAKEUP"
+msgstr ""
+
 msgid "WARNING!"
+msgstr ""
+
+msgid "WIZTV"
 msgstr ""
 
 msgid "WLAN connection"
@@ -12909,6 +13139,9 @@ msgid "WOL standby"
 msgstr ""
 
 msgid "WSS on 4:3"
+msgstr ""
+
+msgid "WWW"
 msgstr ""
 
 msgid "Wait please while creating swapfile..."
@@ -13396,6 +13629,9 @@ msgstr ""
 msgid "XBox 360 support"
 msgstr ""
 
+msgid "YELLOW"
+msgstr ""
+
 msgid "YES"
 msgstr ""
 
@@ -13639,9 +13875,6 @@ msgstr ""
 msgid "Your PIN code is 0000. This is the default PIN code and it disables parental control!\n"
 msgstr ""
 
-msgid "Your Receiver isn't connected to the internet properly. Please check it and try again."
-msgstr ""
-
 msgid "Your backup succeeded. We will now continue to explain the further upgrade process."
 msgstr ""
 
@@ -13656,20 +13889,6 @@ msgid ""
 "Your frontprocessor will be updated\n"
 "Please wait until your %s %s reboots\n"
 "This may take a few minutes"
-msgstr ""
-
-msgid ""
-"Your image is out of date!\n"
-"\n"
-"After such a long time, there is a risk that your Receiver will not\n"
-"boot after online-update, or will show disfunction in running Image.\n"
-"\n"
-"A new flash will increase the stability\n"
-"\n"
-"An online update is done at your own risk !!\n"
-"\n"
-"\n"
-"Do you still want to update?"
 msgstr ""
 
 msgid ""
@@ -13725,6 +13944,9 @@ msgid ""
 "Have you attached your USB WLAN Stick?\n"
 "\n"
 "Please choose what you want to do next."
+msgstr ""
+
+msgid "ZOOM"
 msgstr ""
 
 msgid "Zambia"
@@ -14379,6 +14601,9 @@ msgstr ""
 msgid "menu"
 msgstr ""
 
+msgid "min"
+msgstr ""
+
 msgid "mins"
 msgstr ""
 
@@ -14607,6 +14832,9 @@ msgid "please wait..."
 msgstr ""
 
 msgid "popular culture/traditional arts"
+msgstr ""
+
+msgid "port"
 msgstr ""
 
 msgid "pre-school children's program"
@@ -15047,9 +15275,6 @@ msgid "yes (keep feeds)"
 msgstr ""
 
 msgid "yes, but not in multi selections"
-msgstr ""
-
-msgid "your Receiver might be unusable now. Please consult the manual for further assistance before rebooting your Receiver."
 msgstr ""
 
 msgid "zap"
