@@ -20,9 +20,6 @@ from Components.ProgressBar import ProgressBar
 from os import popen
 from Tools.StbHardware import getFPVersion
 
-from boxbranding import getBoxType, getMachineBuild, getImageVersion, getImageType
-boxtype = getBoxType()
-
 from enigma import eTimer, eLabel, eConsoleAppContainer, getDesktop
 import six
 
@@ -32,6 +29,9 @@ from skin import applySkinFactor, parameters, parseScale
 import os
 import glob
 
+from datetime import datetime
+
+boxtype = BoxInfo.getItem("machinebuild")
 
 class About(Screen):
 	def __init__(self, session):
@@ -120,14 +120,7 @@ class About(Screen):
 		self["KernelVersion"] = StaticText(KernelVersion)
 		AboutText += KernelVersion + "\n"
 
-		if getMachineBuild() in ('gb7252', 'gb72604'):
-			b = popen('cat /proc/stb/info/version').read().strip()
-			driverdate = str(b[0:4] + '-' + b[4:6] + '-' + b[6:8] + ' ' + b[8:10] + ':' + b[10:12] + ':' + b[12:14])
-			AboutText += _("DVB drivers: ") + driverdate + "\n"
-		else:
-			AboutText += _("DVB drivers: ") + self.realDriverDate() + "\n"
-			#AboutText += _("DVB drivers: ") + about.getDriverInstalledDate() + "\n"
-
+		AboutText += _("DVB drivers: ") + datetime.strptime(BoxInfo.getItem("driversdate"), "%Y%m%d").strftime("%d.%m.%Y") + "\n"
 
 		EnigmaSkin = _('Skin & Resolution: %s (%sx%s)') % (config.skin.primary_skin.value.split('/')[0], getDesktop(0).size().width(), getDesktop(0).size().height())
 		self["EnigmaSkin"] = StaticText(EnigmaSkin)
@@ -223,18 +216,6 @@ class About(Screen):
 
 	def showMemoryInfo(self):
 		self.session.open(MemoryInfo)
-
-	def realDriverDate(self):
-		realdate = about.getDriverInstalledDate()
-		try:
-			y = popen('lsmod').read().strip()
-			if 'dvb' in y:
-				drivername = 'dvb'
-				b = popen('modinfo ' + drivername + ' |grep -i version').read().strip().split()[1][:14]
-				realdate = str(b[0:4] + '-' + b[4:6] + '-' + b[6:8] + ' ' + b[8:10] + ':' + b[10:12] + ':' + b[12:14])
-		except:
-			realdate = about.getDriverInstalledDate()
-		return realdate
 
 	def showTroubleshoot(self):
 		self.session.open(Troubleshoot)
