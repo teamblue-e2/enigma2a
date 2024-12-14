@@ -79,7 +79,7 @@ class HdmiCECSetupScreen(ConfigListScreen, Screen):
 
 	def getCurrentDescription(self):
 		description = ConfigListScreen.getCurrentDescription(self)
-		return "%s\n%s\n\n%s" % (self.current_address, self.fixed_address, description) if config.hdmicec.enabled.value else description
+		return "%s\t%s\n%s" % (self.current_address, self.fixed_address, description) if config.hdmicec.enabled.value else description
 
 	def keySelect(self):
 		currentry = self["config"].getCurrent()
@@ -97,11 +97,11 @@ class HdmiCECSetupScreen(ConfigListScreen, Screen):
 		self.updateAddress()
 
 	def updateAddress(self):
-		self.current_address = _("Current CEC address") + ":\t" + Components.HdmiCec.hdmi_cec.getPhysicalAddress()
+		self.current_address = _("Current CEC address") + ": " + Components.HdmiCec.hdmi_cec.getPhysicalAddress()
 		if config.hdmicec.fixed_physical_address.value == "0.0.0.0":
-			self.fixed_address = _("Press yellow button to set CEC address again")
+			self.fixed_address = ("")
 		else:
-			self.fixed_address = _("Using fixed address") + ":\t" + config.hdmicec.fixed_physical_address.value
+			self.fixed_address = _("Using fixed address") + ": " + config.hdmicec.fixed_physical_address.value
 		self["description"].text = self.getCurrentDescription()
 
 	def logPath(self, res):
