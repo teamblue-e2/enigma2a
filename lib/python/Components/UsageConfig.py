@@ -731,6 +731,8 @@ def InitUsageConfig():
 		def setHaveColordepth(configElement):
 			open(BoxInfo.getItem("HasColordepth"), "w").write(configElement.value)
 		config.av.hdmicolordepth = ConfigSelection(default="auto", choices={"auto": _("auto"), "8bit": "8bit", "10bit": "10bit", "12bit": "12bit"})
+		if BoxInfo.getItem("machinebuild") == "gbquad4kpro":
+			config.av.hdmicolordepth = ConfigSelection(default="10bit", choices={"10bit": "10bit", "12bit": "12bit"})
 		config.av.hdmicolordepth.addNotifier(setHaveColordepth)
 
 	if BoxInfo.getItem("HasHDMIpreemphasis"):

@@ -445,6 +445,9 @@ def InitAVSwitch():
 		f = "/proc/stb/video/hdmi_colordepth_choices"
 		if os.path.exists(f):
 			(choices, default) = readChoices(f, choices, default)
+		if BoxInfo.getItem("machinebuild") == "gbquad4kpro":
+			choices = [("10bit", "10bit"), ("12bit", "12bit")]
+			default = "10bit"
 		config.av.hdmicolordepth = ConfigSelection(choices=choices, default=default)
 		config.av.hdmicolordepth.addNotifier(setHaveColordepth)
 
