@@ -1,4 +1,3 @@
-import re
 from enigma import eActionMap
 from Tools.KeyBindings import queryKeyBinding
 
@@ -101,7 +100,7 @@ class HelpableActionMap(ActionMap):
 		if isinstance(contexts, str):
 			contexts = [contexts]
 		actions = actions or {}
-		self.description = description or _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", contexts[0]))
+		self.description = description
 		adict = {}
 		for context in contexts:
 			alist = []

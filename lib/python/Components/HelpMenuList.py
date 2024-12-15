@@ -3,6 +3,7 @@ from Tools.KeyBindings import queryKeyBinding, getFpAndKbdKeys
 from Components.config import config
 from collections import defaultdict
 from keyids import KEYIDS
+import re
 
 # Helplist structure:
 # [ ( actionmap, context, [(action, help), (action, help), ...] ), (actionmap, ... ), ... ]
@@ -81,7 +82,7 @@ class HelpMenuList(List):
 			if not actionmap.enabled:
 				continue
 
-			if headings and actionmap.description and not (formatFlags & self.HEADINGS):
+			if headings and not (formatFlags & self.HEADINGS):
 				print("[HelpMenuList] headings found")
 				formatFlags |= self.HEADINGS
 
@@ -138,12 +139,12 @@ class HelpMenuList(List):
 
 		for (actionmap, context, actions) in sorted(helplist, key=self._sortHeadingsAlpha):
 			amId = actMapId()
-			if headings and amId in actionMapHelp and getattr(actionmap, "description", None):
+			if headings and amId in actionMapHelp:
 				if sortKey:
 					actionMapHelp[amId].sort(key=sortKey)
 				self.addListBoxContext(actionMapHelp[amId], formatFlags)
 
-				l.append((None, actionmap.description, None) + extendedPadding)
+				l.append((None, actionmap.description or _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", context)), None) + extendedPadding)
 				l.extend(actionMapHelp[amId])
 				del actionMapHelp[amId]
 
