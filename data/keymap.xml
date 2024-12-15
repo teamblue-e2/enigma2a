@@ -1,3 +1,4 @@
+
 <!--
 	Flag meanings in <key /> elements:
 	"m": Action active on key "Make".
@@ -41,16 +42,16 @@
 	</map>
 
 	<map context="NavigationActions">
-		<key id="KEY_PREVIOUSSONG" mapto="top" flags="m" />
-		<key id="KEY_CHANNELUP" mapto="pageUp" flags="mr" />
+		<key id="KEY_CHANNELUP" mapto="top" flags="l" />
+		<key id="KEY_CHANNELUP" mapto="pageUp" flags="b" />
 		<key id="KEY_UP" mapto="up" flags="mr" />
 		<key id="KEY_REWIND" mapto="first" flags="m" />
 		<key id="KEY_LEFT" mapto="left" flags="mr" />
 		<key id="KEY_RIGHT" mapto="right" flags="mr" />
 		<key id="KEY_FASTFORWARD" mapto="last" flags="m" />
 		<key id="KEY_DOWN" mapto="down" flags="mr" />
-		<key id="KEY_CHANNELDOWN" mapto="pageDown" flags="mr" />
-		<key id="KEY_NEXTSONG" mapto="bottom" flags="m" />
+		<key id="KEY_CHANNELDOWN" mapto="pageDown" flags="b" />
+		<key id="KEY_CHANNELDOWN" mapto="bottom" flags="l" />
 		<!-- Keyboard specific buttons -->
 		<key id="KEY_HOME" mapto="top" flags="m" />
 		<key id="KEY_PAGEUP" mapto="pageUp" flags="mr" />
