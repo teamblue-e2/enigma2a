@@ -136,7 +136,7 @@ class HelpMenuList(List):
 
 		l = []
 		extendedPadding = (None, ) if formatFlags & self.EXTENDED else ()
-
+		groups = []
 		for (actionmap, context, actions) in sorted(helplist, key=self._sortHeadingsAlpha):
 			amId = actMapId()
 			if headings and amId in actionMapHelp:
@@ -144,7 +144,12 @@ class HelpMenuList(List):
 					actionMapHelp[amId].sort(key=sortKey)
 				self.addListBoxContext(actionMapHelp[amId], formatFlags)
 
-				l.append((None, actionmap.description or _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", context)), None) + extendedPadding)
+				if getattr(actionmap, "description", None):
+					l.append((None, actionmap.description, None) + extendedPadding)
+				else:
+					if context not in groups:
+						groups.append(context)
+						l.append((None, _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", context)), None) + extendedPadding)
 				l.extend(actionMapHelp[amId])
 				del actionMapHelp[amId]
 
