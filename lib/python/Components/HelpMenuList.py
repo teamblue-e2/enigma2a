@@ -234,7 +234,7 @@ class HelpMenuList(List):
 
 	def _sortHeadingsAlpha(self, a):
 		# ignore case
-		return (getattr(a[0], "description", None) or "").lower()
+		return (getattr(a[0], "description", None) or _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", a[1]))).lower()
 
 	def ok(self):
 		# a list entry has a "private" tuple as first entry...
