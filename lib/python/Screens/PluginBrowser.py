@@ -371,7 +371,7 @@ class PluginDownloadBrowser(Screen):
 		if selection:
 			selection = selection[0]
 			if isinstance(selection, str): # category
-				self["key_green"].text = _("Compress") if selection in self.expanded else _("Expand")
+				self["key_green"].text = _("Collapse") if selection in self.expanded else _("Expand")
 			else:
 				self["key_green"].text = _("Install plugin") if self.type == self.DOWNLOAD else _("Remove plugin")
 
