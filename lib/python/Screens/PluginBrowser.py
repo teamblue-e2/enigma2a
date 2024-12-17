@@ -342,7 +342,7 @@ class PluginDownloadBrowser(Screen):
 		self["text"] = Label(_("Downloading plugin information. Please wait...") if self.type == self.DOWNLOAD else _("Getting plugin information. Please wait..."))
 		self["key_red"] = Label(_("Cancel"))
 		self["key_green"] = Label(_("Expand"))
-		self["key_blue"] = Label(_("To remove plugins") if self.type == self.DOWNLOAD else _("To download plugins"))
+		self["key_blue"] = Label(_("Remove plugins") if self.type == self.DOWNLOAD else _("Download plugins"))
 		self.run = 0
 		self.remainingdata = ""
 		self["actions"] = ActionMap(["WizardActions"],
