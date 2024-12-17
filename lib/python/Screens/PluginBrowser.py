@@ -327,7 +327,7 @@ class PluginDownloadBrowser(Screen):
 		self.container.appClosed.append(self.runFinished)
 		self.container.dataAvail.append(self.dataAvail)
 		self.onLayoutFinish.append(self.startRun)
-		self.onShown.append(self.setWindowTitle)
+		self.setTitle(_("Downloadable new plugins") if self.type == self.DOWNLOAD else _("Remove plugins"))
 		self.list = []
 		self["list"] = PluginList(self.list)
 		self.pluginlist = []
@@ -367,38 +367,29 @@ class PluginDownloadBrowser(Screen):
 		self["list"].onSelectionChanged.append(self.selectionChanged)
 
 	def selectionChanged(self):
-		selection = self["list"].l.getCurrentSelection()[0]
-		if isinstance(selection, str): # category
-			self["key_green"].text = _("Compress") if selection in self.expanded else _("Expand")
-		else:
-			self["key_green"].text = _("Install plugin") if self.type == self.DOWNLOAD else _("Remove plugin")
+		selection = self["list"].l.getCurrentSelection()
+		if selection:
+			selection = selection[0]
+			if isinstance(selection, str): # category
+				self["key_green"].text = _("Compress") if selection in self.expanded else _("Expand")
+			else:
+				self["key_green"].text = _("Install plugin") if self.type == self.DOWNLOAD else _("Remove plugin")
 
 	def go(self):
-		sel = self["list"].l.getCurrentSelection()
-
-		if sel is None:
-			return
-
-		sel = sel[0]
-		if isinstance(sel, str): # category
-			if sel in self.expanded:
-				self.expanded.remove(sel)
-			else:
-				self.expanded.append(sel)
-			self.updateList()
-		else:
-			if self.type == self.DOWNLOAD:
-				mbox = self.session.openWithCallback(self.runInstall, MessageBox, _("Do you really want to download the plugin \"%s\"?") % sel.name)
-				mbox.setTitle(_("Download plugins"))
-			elif self.type == self.REMOVE:
-				mbox = self.session.openWithCallback(self.runInstall, MessageBox, _("Do you really want to remove the plugin \"%s\"?") % sel.name, default=False)
-				mbox.setTitle(_("Remove plugins"))
-			elif self.type == self.TOOGLE:
-				if 'hold' in os.popen("opkg status " + Opkg.opkgExtraDestinations() + " " + self.PLUGIN_PREFIX + sel.name).read():
-					mbox = self.session.openWithCallback(self.runInstall, MessageBox, _("Do you really want to unhold the plugin \"%s\"?") % sel.name, default=False)
+		selection = self["list"].l.getCurrentSelection()
+		if selection:
+			selection = selection[0]
+			if isinstance(selection, str): # category
+				if selection in self.expanded:
+					self.expanded.remove(selection)
 				else:
-					mbox = self.session.openWithCallback(self.runInstall, MessageBox, _("Do you really want to hold the plugin \"%s\"?") % sel.name, default=False)
-				mbox.setTitle(_("Hold plugins"))
+					self.expanded.append(selection)
+				self.updateList()
+			else:
+				if self.type == self.DOWNLOAD:
+					self.session.openWithCallback(self.runInstall, MessageBox, _("Do you really want to download\nthe plugin \"%s\"?") % selection.name)
+				elif self.type == self.REMOVE:
+					self.session.openWithCallback(self.runInstall, MessageBox, _("Do you really want to remove\nthe plugin \"%s\"?") % selection.name)
 
 	def delete(self):
 		self.requestClose(1)
