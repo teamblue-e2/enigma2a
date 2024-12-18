@@ -194,7 +194,7 @@ class MediaPlayer(Screen, InfoBarBase, InfoBarScreenSaver, InfoBarSeek, InfoBarA
 				"prevBouquet": (self.prevBouquet, self.prevBouquetHelpText),
 				"nextBouquet": (self.nextBouquet, self.nextBouquetHelptext),
 				"delete": (self.deletePlaylistEntry, _("Delete playlist entry")),
-				"shift_stop": (self.clear_playlist, _("Clear playlist")),
+				"shift_stop": (self.confirm_clear_playlist, _("Clear playlist")),
 				"shift_record": (self.playlist.PlayListShuffle, _("Shuffle playlist")),
 				"subtitles": (self.subtitleSelection, _("Subtitle selection")),
 			}, -2)
@@ -767,6 +767,12 @@ class MediaPlayer(Screen, InfoBarBase, InfoBarScreenSaver, InfoBarSeek, InfoBarA
 			except OSError as e:
 				print("delete failed:", e)
 				self.session.open(MessageBox, _("Delete failed!"), MessageBox.TYPE_ERROR)
+
+	def confirm_clear_playlist(self):
+		def confirm(answer=False):
+			if answer:
+				self.clear_playlist()
+		self.session.openWithCallback(confirm, MessageBox, _("Do you really want to clear this playlist?"), type=MessageBox.TYPE_YESNO, default=False)
 
 	def clear_playlist(self):
 		self.isAudioCD = False
