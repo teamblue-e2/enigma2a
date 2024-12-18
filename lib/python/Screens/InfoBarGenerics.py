@@ -80,7 +80,7 @@ class ResumePoints():
 		self.resumePointCache.clear()
 		if fileExists(self.resumePointFile):
 			with open(self.resumePointFile, "rb") as f:
-				self.resumePointCache.update(pickle_load(f))
+				self.resumePointCache.update(pickle_load(f, fix_imports=True, encoding="utf8"))
 
 	def saveResumePoints(self):
 		with open(self.resumePointFile, "wb") as f:
