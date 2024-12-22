@@ -56,8 +56,8 @@ class HelpMenuList(List):
 		self.longSeen = False
 		self.skipKeys = getFpAndKbdKeys()
 
-		def actMapId():
-			return getattr(actionmap, "description", None) or id(actionmap)
+		def getActionmapGroupKey(actionmap, context):
+			return getattr(actionmap, "description", None) or context
 
 		headings, sortKey = {
 			"headings+alphabetic": (True, self._sortKeyAlpha),
@@ -132,45 +132,22 @@ class HelpMenuList(List):
 
 				entry = [(actionmap, context, action, buttonLabels), help]
 				if self._filterHelpList(entry, helpSeen):
-					actionMapHelp[actMapId()].append(entry)
+					actionMapHelp[getActionmapGroupKey(actionmap, context)].append(entry)
 
-		l = []
+		self.list = []
 		extendedPadding = (None, ) if formatFlags & self.EXTENDED else ()
-		groups = []
 		for (actionmap, context, actions) in sorted(helplist, key=self._sortHeadingsAlpha):
-			amId = actMapId()
-			if headings and amId in actionMapHelp:
+			actionmapGroupKey = getActionmapGroupKey(actionmap, context)
+			print(actionmapGroupKey)
+			if headings and actionmapGroupKey in actionMapHelp:
 				if sortKey:
-					actionMapHelp[amId].sort(key=sortKey)
-				self.addListBoxContext(actionMapHelp[amId], formatFlags)
+					actionMapHelp[actionmapGroupKey].sort(key=sortKey)
+				self.addListBoxContext(actionMapHelp[actionmapGroupKey], formatFlags)
+				self.list.append((None, actionmap.description if getattr(actionmap, "description", None) else _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", context)), None) + extendedPadding)
+				self.list.extend(actionMapHelp[actionmapGroupKey])
+				del actionMapHelp[actionmapGroupKey]
 
-				if getattr(actionmap, "description", None):
-					l.append((None, actionmap.description, None) + extendedPadding)
-				else:
-					if context not in groups:
-						groups.append(context)
-						l.append((None, _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", context)), None) + extendedPadding)
-				l.extend(actionMapHelp[amId])
-				del actionMapHelp[amId]
-
-		if actionMapHelp:
-			# Add a header if other actionmaps have descriptions
-			if formatFlags & self.HEADINGS:
-				l.append((None, _("Other functions"), None) + extendedPadding)
-
-			otherHelp = []
-			for (actionmap, context, actions) in helplist:
-				amId = actMapId()
-				if amId in actionMapHelp:
-					otherHelp.extend(actionMapHelp[amId])
-					del actionMapHelp[amId]
-
-			if sortKey:
-				otherHelp.sort(key=sortKey)
-			self.addListBoxContext(otherHelp, formatFlags)
-			l.extend(otherHelp)
-
-		for i, ent in enumerate(l):
+		for i, ent in enumerate(self.list):
 			if ent[0] is not None:
 				# Ignore "break" events from
 				# OK and EXIT on return from
@@ -185,8 +162,6 @@ class HelpMenuList(List):
 			"extended",
 			"extended+headings",
 		)[formatFlags]
-
-		self.list = l
 
 	def _mergeButLists(self, bl1, bl2):
 		bl1.extend([b for b in bl2 if b not in bl1])
