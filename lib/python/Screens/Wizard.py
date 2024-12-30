@@ -673,10 +673,8 @@ class Wizard(Screen):
 						self["config"].getCurrent()[1].help_window.instance.move(ePoint(helpwindowpos[0], helpwindowpos[1]))
 			self["config"].instance.moveSelectionTo(self.currentConfigIndex)
 			self["config"].setCurrentIndex(self.currentConfigIndex)
-			print(self["config"].getCurrent()[1].value)
 			if isinstance(self["config"].getCurrent()[1], ConfigSelection):
 				self["config"].getCurrent()[1].setValue(callback[1])
-				print(self["config"].getCurrent()[1].value, list(self["config"].getCurrent()[1].choices))
 			else:
 				self["config"].getCurrent()[1].setValue(callback)
 			self["config"].invalidate(self["config"].getCurrent())
