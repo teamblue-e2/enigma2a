@@ -143,7 +143,7 @@ class HelpMenuList(List):
 				if sortKey:
 					actionMapHelp[actionmapGroupKey].sort(key=sortKey)
 				self.addListBoxContext(actionMapHelp[actionmapGroupKey], formatFlags)
-				self.list.append((None, actionmap.description if getattr(actionmap, "description", None) else _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", context)), None) + extendedPadding)
+				self.list.append((None, actionmap.description if getattr(actionmap, "description", None) else _(re.sub(r"(?:(?=(?<=[^A-Z])[A-Z])|(?=Actions|Select))(?!(?<=Pi)P)", " ", context)), None) + extendedPadding)
 				self.list.extend(actionMapHelp[actionmapGroupKey])
 				del actionMapHelp[actionmapGroupKey]
 
@@ -214,7 +214,7 @@ class HelpMenuList(List):
 
 	def _sortHeadingsAlpha(self, a):
 		# ignore case
-		return (getattr(a[0], "description", None) or _(re.sub(r"(\w)([A-Z])([a-z])", r"\1 \2\3", a[1]))).lower()
+		return (getattr(a[0], "description", None) or _(re.sub(r"(?:(?=(?<=[^A-Z])[A-Z])|(?=Actions|Select))(?!(?<=Pi)P)", " ", a[1]))).lower()
 
 	def ok(self):
 		# a list entry has a "private" tuple as first entry...
