@@ -309,7 +309,7 @@ class CommitInfo(Screen):
 		try:
 			# develop-type images have no version but a revision number
 			if BoxInfo.getItem('imagetype') == "rev":
-				branch = "?sha=" + BoxInfo.getItem('imagetype')
+				branch = "?sha=" + BoxInfo.getItem('imageversion')
 			else:
 				branch = "?sha=%s-%s" % (BoxInfo.getItem('imagetype'),BoxInfo.getItem('imageversion'))
 		except:
