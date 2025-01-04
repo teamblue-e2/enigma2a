@@ -136,16 +136,25 @@ class HelpMenuList(List):
 
 		self.list = []
 		extendedPadding = (None, ) if formatFlags & self.EXTENDED else ()
-		for (actionmap, context, actions) in sorted(helplist, key=self._sortHeadingsAlpha):
-			actionmapGroupKey = getActionmapGroupKey(actionmap, context)
-			print(actionmapGroupKey)
-			if headings and actionmapGroupKey in actionMapHelp:
-				if sortKey:
-					actionMapHelp[actionmapGroupKey].sort(key=sortKey)
-				self.addListBoxContext(actionMapHelp[actionmapGroupKey], formatFlags)
-				self.list.append((None, actionmap.description if getattr(actionmap, "description", None) else _(re.sub(r"(?:(?=(?<=[^A-Z])[A-Z])|(?=Actions|Select))(?!(?<=Pi)P)", " ", context)), None) + extendedPadding)
-				self.list.extend(actionMapHelp[actionmapGroupKey])
-				del actionMapHelp[actionmapGroupKey]
+		if headings:
+			for (actionmap, context, actions) in sorted(helplist, key=self._sortHeadingsAlpha):
+				actionmapGroupKey = getActionmapGroupKey(actionmap, context)
+				if actionmapGroupKey in actionMapHelp:
+					if sortKey:
+						actionMapHelp[actionmapGroupKey].sort(key=sortKey)
+					self.addListBoxContext(actionMapHelp[actionmapGroupKey], formatFlags)
+					self.list.append((None, actionmap.description if getattr(actionmap, "description", None) else _(re.sub(r"(?:(?=(?<=[^A-Z])[A-Z])|(?=Actions|Select))(?!(?<=Pi)P)", " ", context)), None) + extendedPadding)
+					self.list.extend(actionMapHelp[actionmapGroupKey])
+					del actionMapHelp[actionmapGroupKey]
+		else:
+			for (actionmap, context, actions) in helplist:
+				actionmapGroupKey = getActionmapGroupKey(actionmap, context)
+				if actionmapGroupKey in actionMapHelp:
+					self.list.extend(actionMapHelp[actionmapGroupKey])
+					del actionMapHelp[actionmapGroupKey]
+			if sortKey:
+				self.list.sort(key=sortKey)
+			self.addListBoxContext(self.list, formatFlags)
 
 		for i, ent in enumerate(self.list):
 			if ent[0] is not None:
