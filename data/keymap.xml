@@ -37,8 +37,10 @@
 
 	<map context="HelpActions">
 		<key id="KEY_HELP" mapto="displayHelp" flags="b" />
+		<key id="KEY_HELP" mapto="toggleConfig" flags="l" />
 		<!-- Keyboard specific buttons -->
 		<key id="KEY_F1" mapto="displayHelp" flags="b" />
+		<key id="KEY_F1" mapto="toggleConfig" flags="l" />
 	</map>
 
 	<map context="NavigationActions">
