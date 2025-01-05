@@ -105,11 +105,12 @@ class Setup(ConfigListScreen, Screen, HelpableScreen):
 				including = True
 
 	def addItem(self, element):
+		indent = element.get("indent", "")
 		if self.pluginLanguageDomain:
-			itemText = dgettext(self.pluginLanguageDomain, x) if (x := element.get("text")) else "* fix me *"
+			itemText = indent + (dgettext(self.pluginLanguageDomain, x) if (x := element.get("text")) else "* fix me *")
 			itemDescription = dgettext(self.pluginLanguageDomain, x) if (x := element.get("description")) else ""
 		else:
-			itemText = _(x) if (x := element.get("text")) else "* fix me *"
+			itemText = indent + (_(x) if (x := element.get("text")) else "* fix me *")
 			itemDescription = _(x) if (x := element.get("description")) else ""
 		item = eval(element.text or "")
 		if item == "":
