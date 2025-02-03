@@ -61,7 +61,16 @@ class HdmiCECSetupScreen(ConfigListScreen, Screen):
 			self.list.append((_("Minimum send interval"), config.hdmicec.minimum_send_interval, _("Delay between CEC commands when sending a series of commands. Some devices require this delay for correct functioning, usually between 50-150ms.")))
 			self.list.append((_("Repeat leave standby messages"), config.hdmicec.repeat_wakeup_timer, _("The command to wake from standby will be sent multiple times.")))
 			self.list.append((_("Send 'sourceactive' before zap timers"), config.hdmicec.sourceactive_zaptimers, _("Command the TV to switch to the correct HDMI input when zap timers activate.")))
-			self.list.append((_("Detect next boxes before standby"), config.hdmicec.next_boxes_detect, _("Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command.")))
+			self.list.append((_("Detect other boxes before standby"), config.hdmicec.next_boxes_detect, _("Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command.")))
+			if config.hdmicec.next_boxes_detect.value:
+				for i in range(len(config.hdmicec.ethbox)):
+					self.list.append((8*" " + _("Detect box%s via network") % (i + 1), config.hdmicec.ethbox[i].used, _("For this box, the network connection can also be used for detection.")))
+					if config.hdmicec.ethbox[i].used.value:
+						self.list.append((16*" " + _("IP"), config.hdmicec.ethbox[i].ip, _("OpenWebif is used for detection on box with this IP address.")))
+						self.list.append((16*" " + _("port"), config.hdmicec.ethbox[i].port, _("Port used by OpenWebif on tested box.")))
+			self.list.append((_("Ping device before standby"), config.hdmicec.ethernet_pc_used, _("Before sending the command to switch the TV to standby, the receiver can test if a device connected to the TV responds to a network 'ping'. If it does, instead of the 'standby' command the 'sourceinactive' command will be sent to the TV.")))
+			if config.hdmicec.ethernet_pc_used.value:
+				self.list.append((8 * " " + _("IP"), config.hdmicec.pc_ip, _("'Ping' is used for detection device on this address.")))
 			self.list.append((_("Debug to file"), config.hdmicec.debug, _("If enabled, a log will be kept of CEC protocol traffic ('hdmicec.log')")))
 			self.logpath_entry = (_("Select path for logfile"), config.hdmicec.log_path, _("Press OK to select the save location of the log file."))
 			if config.hdmicec.debug.value != "0":
@@ -70,7 +79,7 @@ class HdmiCECSetupScreen(ConfigListScreen, Screen):
 
 	def getCurrentDescription(self):
 		description = ConfigListScreen.getCurrentDescription(self)
-		return "%s\n%s\n\n%s" % (self.current_address, self.fixed_address, description) if config.hdmicec.enabled.value else description
+		return "%s\t%s\n%s" % (self.current_address, self.fixed_address, description) if config.hdmicec.enabled.value else description
 
 	def keySelect(self):
 		currentry = self["config"].getCurrent()
@@ -88,11 +97,11 @@ class HdmiCECSetupScreen(ConfigListScreen, Screen):
 		self.updateAddress()
 
 	def updateAddress(self):
-		self.current_address = _("Current CEC address") + ":\t" + Components.HdmiCec.hdmi_cec.getPhysicalAddress()
+		self.current_address = _("Current CEC address") + ": " + Components.HdmiCec.hdmi_cec.getPhysicalAddress()
 		if config.hdmicec.fixed_physical_address.value == "0.0.0.0":
-			self.fixed_address = _("Press yellow button to set CEC address again")
+			self.fixed_address = ("")
 		else:
-			self.fixed_address = _("Using fixed address") + ":\t" + config.hdmicec.fixed_physical_address.value
+			self.fixed_address = _("Using fixed address") + ": " + config.hdmicec.fixed_physical_address.value
 		self["description"].text = self.getCurrentDescription()
 
 	def logPath(self, res):

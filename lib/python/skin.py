@@ -8,7 +8,7 @@ from Components.config import ConfigSubsection, ConfigText, config
 from Components.RcModel import rc_model
 from Components.Sources.Source import ObsoleteSource
 from Components.SystemInfo import BoxInfo
-from Tools.Directories import SCOPE_CONFIG, SCOPE_CURRENT_LCDSKIN, SCOPE_CURRENT_SKIN, SCOPE_FONTS, SCOPE_SKIN, SCOPE_SKIN_IMAGE, resolveFilename
+from Tools.Directories import SCOPE_CURRENT_LCDSKIN, SCOPE_CURRENT_SKIN, SCOPE_FONTS, SCOPE_SKIN, resolveFilename
 from Tools.Import import my_import
 from Tools.LoadPixmap import LoadPixmap
 
@@ -59,7 +59,7 @@ config.skin.clock_skin = ConfigText(default=DEFAULT_CLOCK_SKIN)
 currentPrimarySkin = None
 currentDisplaySkin = None
 currentClockSkin = None
-callbacks = []
+onLoadCallbacks = []
 runCallbacks = False
 
 # Skins are loaded in order of priority.  Skin with highest priority is
@@ -77,8 +77,7 @@ runCallbacks = False
 
 
 def InitSkins():
-	global currentPrimarySkin, currentDisplaySkin, currentClockSkin
-	runCallbacks = False
+	global currentPrimarySkin, currentDisplaySkin, currentClockSkin, runCallbacks
 	# Add the emergency skin.  This skin should provide enough functionality
 	# to enable basic GUI functions to work.
 	loadSkin(EMERGENCY_SKIN, scope=SCOPE_CURRENT_SKIN, desktop=getDesktop(GUI_SKIN_ID), screenID=GUI_SKIN_ID)
@@ -125,7 +124,11 @@ def InitSkins():
 			result = loadSkin(name, scope=SCOPE_CURRENT_SKIN, desktop=getDesktop(GUI_SKIN_ID), screenID=GUI_SKIN_ID)
 	if result is None:
 		loadSkin(USER_SKIN, scope=SCOPE_CURRENT_SKIN, desktop=getDesktop(GUI_SKIN_ID), screenID=GUI_SKIN_ID)
-	runCallbacks = True
+	if not runCallbacks:
+		runCallbacks = True
+		for method in onLoadCallbacks:
+			if callable(method):
+				method()
 
 # Temporary entry point for older versions of StartEnigma.py.
 #
@@ -169,10 +172,6 @@ def loadSkin(filename, scope=SCOPE_SKIN, desktop=getDesktop(GUI_SKIN_ID), screen
 					# Element is not a screen or windowstyle element so no need for it any longer.
 				reloadWindowStyles()  # Reload the window style to ensure all skin changes are taken into account.
 				print("[Skin] Loading skin file '%s' complete." % filename)
-				if runCallbacks:
-					for method in self.callbacks:
-						if method:
-							method()
 				return True
 			except xml.etree.ElementTree.ParseError as err:
 				fd.seek(0)
@@ -195,6 +194,7 @@ def loadSkin(filename, scope=SCOPE_SKIN, desktop=getDesktop(GUI_SKIN_ID), screen
 
 
 def reloadSkins():
+	global domScreens, colors, fonts, menus, menuicons, parameters, screens, setups, switchPixmap
 	domScreens.clear()
 	colors.clear()
 	colors = {
@@ -219,13 +219,13 @@ def reloadSkins():
 
 
 def addCallback(callback):
-	if callback not in callbacks:
-		callbacks.append(callback)
+	if callback not in onLoadCallbacks:
+		onLoadCallbacks.append(callback)
 
 
 def removeCallback(callback):
-	if callback in self.callbacks:
-		callbacks.remove(callback)
+	if callback in onLoadCallbacks:
+		onLoadCallbacks.remove(callback)
 
 
 class SkinError(Exception):

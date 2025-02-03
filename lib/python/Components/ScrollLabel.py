@@ -23,6 +23,7 @@ class ScrollLabel(GUIComponent):
 
 	def applySkin(self, desktop, parent):
 		scrollbarWidth = 20
+		scrollbarMargin = 10
 		scrollbarBorderWidth = 1
 		ret = False
 		if self.skinAttributes:
@@ -49,6 +50,9 @@ class ScrollLabel(GUIComponent):
 					widget_attribs.append((attrib, value))
 				elif "scrollbarWidth" in attrib:
 					scrollbarWidth = skin.parseScale(value)
+					self.skinAttributes.remove((attrib, value))
+				elif "scrollbarMargin" in attrib:
+					scrollbarMargin = skin.parseScale(value)
 					self.skinAttributes.remove((attrib, value))
 				elif "scrollbarSliderBorderWidth" in attrib:
 					scrollbarBorderWidth = skin.parseScale(value)
@@ -81,6 +85,8 @@ class ScrollLabel(GUIComponent):
 		self.scrollbar.setOrientation(eSlider.orVertical)
 		self.scrollbar.setRange(0, 100)
 		self.scrollbar.setBorderWidth(scrollbarBorderWidth)
+		self.long_text_width = self.pageWidth - scrollbarWidth - scrollbarMargin
+		self.long_text.resize(eSize(self.long_text_width, self.pageHeight + int(lineheight / 6)))
 		self.setText(self.message)
 		return ret
 
@@ -106,8 +112,9 @@ class ScrollLabel(GUIComponent):
 			else:
 				self.long_text.setText(text)
 			self.TotalTextHeight = self.long_text.calculateSize().height()
-			self.long_text.resize(eSize(self.pageWidth - 30, self.TotalTextHeight))
-			self.split and self.right_text.resize(eSize(self.pageWidth - self.column - 30, self.TotalTextHeight))
+			self.long_text.resize(eSize(self.long_text_width, self.TotalTextHeight))
+			if self.split:
+				self.right_text.resize(eSize(self.long_text_width - self.column, self.TotalTextHeight))
 			if showBottom:
 				self.lastPage()
 			else:

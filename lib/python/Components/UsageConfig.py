@@ -1,5 +1,5 @@
 from Components.Harddisk import harddiskmanager
-from Components.config import ConfigSubsection, ConfigYesNo, config, ConfigSelection, ConfigText, ConfigNumber, ConfigSet, ConfigLocations, ConfigSelectionNumber, ConfigClock, ConfigSlider, ConfigEnableDisable, ConfigSubDict, ConfigDictionarySet, ConfigInteger, ConfigPassword, ConfigBoolean, ConfigIP
+from Components.config import ConfigSubsection, ConfigYesNo, config, ConfigSelection, ConfigText, ConfigNumber, ConfigSet, ConfigLocations, ConfigSelectionNumber, ConfigClock, ConfigSlider, ConfigEnableDisable, ConfigSubDict, ConfigDictionarySet, ConfigInteger, ConfigPassword, ConfigBoolean, ConfigIP, NoSave
 from Components.Console import Console
 from Tools.Directories import defaultRecordingLocation
 from enigma import setTunerTypePriorityOrder, setPreferredTuner, setSpinnerOnOff, setEnableTtCachingOnOff, eEnv, eDVBDB, Misc_Options, eBackgroundFileEraser, eServiceEvent, eDVBLocalTimeHandler, eEPGCache
@@ -105,7 +105,7 @@ def InitUsageConfig():
 	config.usage.show_infobar_on_zap = ConfigYesNo(default=True)
 	config.usage.show_infobar_on_skip = ConfigYesNo(default=True)
 	config.usage.show_infobar_on_event_change = ConfigYesNo(default=False)
-	config.usage.show_second_infobar = ConfigSelection(default="0", choices=[("", _("None"))] + choicelist + [("EPG", _("EPG"))])
+	config.usage.show_second_infobar = ConfigSelection(default="0", choices=[("no", _("None"))] + choicelist + [("EPG", _("EPG"))])
 	config.usage.show_simple_second_infobar = ConfigYesNo(default=False)
 	config.usage.show_infobar_adds = ConfigYesNo(default=False)
 	config.usage.infobar_frontend_source = ConfigSelection(default="settings", choices=[("settings", _("Settings")), ("tuner", _("Tuner"))])
@@ -178,6 +178,12 @@ def InitUsageConfig():
 		("simple", _("Simple")),
 		("intermediate", _("Intermediate")),
 		("expert", _("Expert"))])
+
+	config.usage.help_sortorder = ConfigSelection(default="headings+alphabetic", choices=[
+		("headings+alphabetic", _("Alphabetical under headings")),
+		("flat+alphabetic", _("Flat alphabetical")),
+		("flat+remotepos", _("Flat by position on remote")),
+		("flat+remotegroups", _("Flat by key group on remote"))])
 
 	config.usage.startup_to_standby = ConfigSelection(default="no", choices=[
 		("no", _("no")),
@@ -475,7 +481,7 @@ def InitUsageConfig():
 	config.usage.multiboot_order = ConfigYesNo(default=True)
 
 	config.usage.setupShowDefault = ConfigSelection(default="spaces", choices=[
-		("", _("Don't show default")),
+		("no", _("Don't show default")),
 		("spaces", _("Show default after description")),
 		("newline", _("Show default on new line"))
 	])
@@ -530,7 +536,7 @@ def InitUsageConfig():
 				else:
 					return "%s" % (ngettext("%d week", "%d weeks", unit) % unit)
 		return _("0 minutes")
-	choices = [(i, wdhm(i)) for i in [i * 15 for i in range(0, 4)] + [i * 60 for i in range(1, 9)] + [i * 120 for i in range(5, 12)] + [i * 24 * 60 for i in range(1, 8)]]
+	choices = [(0, _('None'))] + [(i, wdhm(i)) for i in [i * 15 for i in range(1, 4)] + [i * 60 for i in range(1, 9)] + [i * 120 for i in range(5, 12)] + [i * 24 * 60 for i in range(1, 8)]]
 	config.epg.histminutes = ConfigSelection(default=0, choices=choices)
 	def EpgHistorySecondsChanged(configElement):
 		from enigma import eEPGCache
@@ -776,6 +782,12 @@ def InitUsageConfig():
 		config.av.allow_10bit = ConfigYesNo(default=False)
 		config.av.allow_10bit.addNotifier(setDisable10Bit)
 
+	def quadpip_mode_notifier(configElement):
+		if BoxInfo.getItem("HasQuadpip"):
+			open(BoxInfo.getItem("HasQuadpip"), "w").write("mosaic" if configElement.value else "normal")
+	config.usage.QuadpipMode = NoSave(ConfigYesNo(default=False))
+	config.usage.QuadpipMode.addNotifier(quadpip_mode_notifier)
+
 	config.subtitles = ConfigSubsection()
 	config.subtitles.show = ConfigYesNo(default=True)
 	config.subtitles.ttx_subtitle_colors = ConfigSelection(default="1", choices=[
@@ -799,11 +811,12 @@ def InitUsageConfig():
 			subtitle_delay_choicelist.append((str(i), "%2.1f sec" % (i / 90000.)))
 	config.subtitles.subtitle_noPTSrecordingdelay = ConfigSelection(default="315000", choices=subtitle_delay_choicelist)
 
-	config.subtitles.dvb_subtitles_yellow = ConfigYesNo(default=False)
+	config.subtitles.dvb_subtitles_color = ConfigSelection(default="0", choices=[("0", _("Off")), ("1", _("Yellow")), ("2", _("Green")), ("3", _("Magenta")), ("4", _("Cyan"))])
 	config.subtitles.dvb_subtitles_original_position = ConfigSelection(default="0", choices=[("0", _("Original")), ("1", _("Fixed")), ("2", _("Relative"))])
 	config.subtitles.dvb_subtitles_centered = ConfigYesNo(default=False)
 	config.subtitles.subtitle_bad_timing_delay = ConfigSelection(default="0", choices=subtitle_delay_choicelist)
-	config.subtitles.dvb_subtitles_backtrans = ConfigSelection(default="0", choices=[
+	config.subtitles.dvb_subtitles_backtrans = ConfigSelection(default="-1", choices=[
+		("-1", _("Original")),
 		("0", _("No transparency")),
 		("25", "10%"),
 		("50", "20%"),

@@ -80,7 +80,7 @@ class ResumePoints():
 		self.resumePointCache.clear()
 		if fileExists(self.resumePointFile):
 			with open(self.resumePointFile, "rb") as f:
-				self.resumePointCache.update(pickle_load(f))
+				self.resumePointCache.update(pickle_load(f, fix_imports=True, encoding="utf8"))
 
 	def saveResumePoints(self):
 		with open(self.resumePointFile, "wb") as f:
@@ -593,7 +593,7 @@ class InfoBarShowHide(InfoBarScreenSaver):
 		if isStandardInfoBar(self) and config.usage.show_second_infobar.value == "EPG":
 			if not (hasattr(self, "hotkeyGlobal") and self.hotkeyGlobal("info") != 0):
 				self.showDefaultEPG()
-		elif self.actualSecondInfoBarScreen and config.usage.show_second_infobar.value and not self.actualSecondInfoBarScreen.shown:
+		elif self.actualSecondInfoBarScreen and config.usage.show_second_infobar.value != "no" and not self.actualSecondInfoBarScreen.shown:
 			self.show()
 			self.actualSecondInfoBarScreen.show()
 			self.startHideTimer()

@@ -10,6 +10,8 @@ from enigma import eDVBDB
 config.misc.installwizard = ConfigSubsection()
 config.misc.installwizard.hasnetwork = ConfigBoolean(default=False)
 config.misc.installwizard.opkgloaded = ConfigBoolean(default=False)
+config.misc.installwizard.downloadchannellist = ConfigBoolean(default=False)
+config.misc.installwizard.selectedchannellist = ConfigSelection(choices={"19e": "Astra 19.2e", "19e-13e": "Astra 19.2e Hotbird 13.0e", "kabel-bw": "Kabel BW", "kabeldeutschland": " Kabel Deutschland", "unity-media": "Kabel Unitymedia"})
 config.misc.installwizard.channellistdownloaded = ConfigBoolean(default=False)
 
 
@@ -34,19 +36,9 @@ class InstallWizard(ConfigListScreen, Screen):
 			self.adapters = [adapter for adapter in iNetwork.getAdapterList() if adapter in ('eth0', 'eth1')]
 			self.checkNetwork()
 		elif self.index == self.STATE_CHOICE_CHANNELLIST:
-			self.enabled = ConfigYesNo(default=True, graphic=False)
-			modes = {
-								"19e": "Astra 19.2e",
-								"19e-13e": "Astra 19.2e Hotbird 13.0e",
-								"kabel-bw": "Kabel BW",
-								"kabeldeutschland": " Kabel Deutschland",
-								"unity-media": "Kabel Unitymedia"
-							}
-			self.channellist_type = ConfigSelection(choices=modes, default="19e-13e")
+			self.enabled = config.misc.installwizard.downloadchannellist
+			self.channellist_type = config.misc.installwizard.selectedchannellist
 			self.createMenu()
-#		elif self.index == self.STATE_CHOICE_SOFTCAM:
-#			self.enabled = ConfigYesNo(default = False)
-#			self.createMenu()
 		elif self.index == self.INSTALL_PLUGINS:
 			self.enabled = ConfigYesNo(default=True)
 			self.createMenu()

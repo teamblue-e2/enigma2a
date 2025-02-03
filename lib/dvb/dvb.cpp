@@ -1435,7 +1435,7 @@ int tuner_type_channel_default(ePtr<iDVBChannelList> &channellist, const eDVBCha
 	return 0;
 }
 
-int eDVBResourceManager::canAllocateChannel(const eDVBChannelID &channelid, const eDVBChannelID& ignore, int &system, bool simulate)
+int eDVBResourceManager::canAllocateChannel(const eDVBChannelID &channelid, const eDVBChannelID& ignore, const eDVBChannelID& ignoresr, int &system, bool simulate)
 {
 	std::list<active_channel> &active_channels = simulate ? m_active_simulate_channels : m_active_channels;
 	int ret = 0;
@@ -1466,6 +1466,7 @@ int eDVBResourceManager::canAllocateChannel(const eDVBChannelID &channelid, cons
 	std::vector<int*> fcc_decremented_fe_usecounts;
 	std::map<eDVBChannelID, int> fcc_chids;
 	int apply_to_ignore = 0;
+	int apply_to_ignoresr = 0;
 	if (!eFCCServiceManager::getFCCChannelID(fcc_chids))
 	{
 		for (std::map<eDVBChannelID, int>::iterator i(fcc_chids.begin()); i != fcc_chids.end(); ++i)
@@ -1508,6 +1509,18 @@ int eDVBResourceManager::canAllocateChannel(const eDVBChannelID &channelid, cons
 					}
 					break;
 				}
+			}
+		}
+	}
+
+	// For stream relayed channel make a check is it in the available channels and if it is ignore it
+	if (ignoresr) {
+		for (std::list<active_channel>::iterator i(active_channels.begin()); i != active_channels.end(); ++i)
+		{
+			if (i->m_channel_id == ignoresr)
+			{
+				apply_to_ignoresr = 1;
+				break;
 			}
 		}
 	}

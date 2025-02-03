@@ -1,5 +1,7 @@
 from Tools.Profile import profile
 from enigma import eServiceReference
+from glob import glob
+from os.path import splitext
 
 # workaround for required config entry dependencies.
 import Screens.MovieSelection
@@ -31,7 +33,6 @@ from Components.ServiceEventTracker import ServiceEventTracker, InfoBarBase
 
 profile("LOAD:HelpableScreen")
 from Screens.HelpMenu import HelpableScreen
-
 
 class InfoBar(InfoBarBase, InfoBarShowHide,
 	InfoBarNumberZap, InfoBarChannelSelection, InfoBarMenu, InfoBarEPG, InfoBarRdsDecoder,
@@ -145,6 +146,8 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 		if service is None:
 			if ref and not self.session.nav.getCurrentlyPlayingServiceOrGroup():
 				self.session.nav.playService(ref)
+		elif isinstance(service, bool) and service:
+			self.showMovies()
 		else:
 			from Components.ParentalControl import parentalControl
 			if parentalControl.isServicePlayable(service, self.openMoviePlayer):
@@ -215,6 +218,17 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 		self.servicelist = slist
 		self.infobar = infobar
 		self.lastservice = lastservice or session.nav.getCurrentlyPlayingServiceOrGroup()
+
+		path = service and service.getPath() and splitext(service.getPath())[0] or ""
+		subs = []
+		if path:
+			for sub in ("srt", "ass", "ssa"):
+				subs = glob("%s*.%s" % (path, sub))
+				if subs:
+					break
+		if subs:
+			service.setSubUri(subs[0])  # Support currently only one external sub
+
 		session.nav.playService(service)
 		self.cur_service = service
 		self.returning = False
@@ -262,6 +276,8 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 			self.session.openWithCallback(self.leavePlayerConfirmed, ChoiceBox, title=_("Stop playing this movie?"), list=_list)
 		else:
 			self.leavePlayerConfirmed([True, how])
+			#This does reset the Video Decoder as needed for GigaBlue boxes.
+			config.usage.QuadpipMode.changed()
 
 	def leavePlayer(self):
 		resumePointsInstance.setResumePoint(self.session)
@@ -536,7 +552,9 @@ class MoviePlayer(InfoBarBase, InfoBarShowHide, InfoBarMenu, InfoBarSeek, InfoBa
 		self.movieselection_dlg = self.session.openWithCallback(self.movieSelected, Screens.MovieSelection.MovieSelection, ref)
 
 	def movieSelected(self, service):
-		if service is not None:
+		if isinstance(service, bool) and service:
+			self.showMovies()
+		elif service is not None:
 			if self.cur_service and self.cur_service != service:
 				resumePointsInstance.setResumePoint(self.session)
 			self.cur_service = service

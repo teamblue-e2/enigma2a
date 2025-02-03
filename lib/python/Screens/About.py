@@ -52,7 +52,7 @@ class About(Screen):
 		AboutText = _("Hardware: ") + BoxName + "\n"
 		AboutText += _("Serial: ") + serial + "\n"
 		AboutText += _("CPU: ") + cpu + "\n"
-		AboutText += _("Image: ") + about.getImageTypeString() + " " + ImageType + "\n"
+		AboutText += _("Image: ") + about.getImageTypeString() + "\n"
 		AboutText += _("Image revision: ") + getE2Rev() +  "\n"
 		AboutText += _("OE Version: ") + about.getOEVersionString() + "\n"
 		ImageVersion = _("Last upgrade: ") + about.getImageVersionString()
@@ -305,9 +305,13 @@ class CommitInfo(Screen):
 
 		self["key_red"] = Button(_("Cancel"))
 
-		# get the branch to display from the Enigma version
+		# get the branch to display from the boxinfo image type and version
 		try:
-			branch = "?sha=" + about.getEnigmaVersionString().split("(")[1].split(")")[0].lower()
+			# develop-type images have no version but a revision number
+			if BoxInfo.getItem('imagetype') == "rev":
+				branch = "?sha=" + BoxInfo.getItem('imageversion')
+			else:
+				branch = "?sha=%s-%s" % (BoxInfo.getItem('imagetype'),BoxInfo.getItem('imageversion'))
 		except:
 			branch = ""
 		branch_e2plugins = "?sha=python3"

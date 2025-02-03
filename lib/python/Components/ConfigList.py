@@ -174,23 +174,23 @@ class ConfigListScreen:
 			if "key_yellow" not in self and yellow_button:
 				self["key_yellow"] = StaticText(yellow_button.get('text', ''))
 				self["key_yellowActions"] = HelpableActionMap(self, ["ColorActions"], {
-					"yellow": (yellow_button['function'], yellow_button.get('helptext', _("Yellow button function"))),
-				}, prio=1, description=_("Common Setup Actions"))
+					"yellow": (yellow_button['function'], yellow_button.get('helptext', yellow_button.get('text', _("Yellow button function")))),
+				}, prio=1)
 			if "key_blue" not in self and blue_button:
 				self["key_blue"] = StaticText(blue_button.get('text', ''))
 				self["key_blueActions"] = HelpableActionMap(self, ["ColorActions"], {
-					"blue": (blue_button['function'], blue_button.get('helptext', _("Blue button function"))),
-				}, prio=1, description=_("Common Setup Actions"))
+					"blue": (blue_button['function'], blue_button.get('helptext', blue_button.get('text', _("Blue button function")))),
+				}, prio=1)
 			if "key_menu" not in self and menu_button:
 				self["key_menu"] = StaticText(menu_button.get('text', ''))
 				self["menuConfigActions"] = HelpableActionMap(self, "ConfigListActions", {
-					"menu": (menu_button['function'], menu_button.get('helptext', _("Menu button function"))),
-				}, prio=1, description=_("Common Setup Actions"))
+					"menu": (menu_button['function'], menu_button.get('helptext', menu_button.get('text', _("Menu button function")))),
+				}, prio=1)
 			self["fullUIActions"] = HelpableActionMap(self, ["ConfigListActions"], {
 				"cancel": (self.keyCancel, _("Cancel any changed settings and exit")),
 				"close": (self.closeRecursive, _("Cancel any changed settings and exit all menus")),
 				"save": (self.keySave, _("Save all changed settings and exit"))
-			}, prio=1, description=_("Common Setup Actions"))
+			}, prio=1)
 		if "HelpWindow" not in self:
 			self["HelpWindow"] = Pixmap()
 			self["HelpWindow"].hide()
@@ -198,7 +198,7 @@ class ConfigListScreen:
 			self["VKeyIcon"] = Boolean(False)
 		self["configActions"] = HelpableActionMap(self, ["ConfigListActions"], {
 			"select": (self.keySelect, _("Select, toggle, process or edit the current entry"))
-		}, prio=1, description=_("Common Setup Actions"))
+		}, prio=1)
 		self["navigationActions"] = HelpableActionMap(self, ["NavigationActions"], {
 			"top": (self.keyTop, _("Move to first line / screen")),
 			"pageUp": (self.keyPageUp, _("Move up a screen")),
@@ -210,7 +210,7 @@ class ConfigListScreen:
 			"down": (self.keyDown, _("Move down a line")),
 			"pageDown": (self.keyPageDown, _("Move down a screen")),
 			"bottom": (self.keyBottom, _("Move to last line / screen"))
-		}, prio=1, description=_("Common Setup Actions"))
+		}, prio=1)
 		self["editConfigActions"] = HelpableNumberActionMap(self, ["NumberActions", "TextEditActions"], {
 			"backspace": (self.keyBackspace, _("Delete character to left of cursor or select AM times")),
 			"delete": (self.keyDelete, _("Delete character under cursor or select PM times")),
@@ -227,11 +227,11 @@ class ConfigListScreen:
 			"9": (self.keyNumberGlobal, _("Number or SMS style data entry")),
 			"0": (self.keyNumberGlobal, _("Number or SMS style data entry")),
 			"gotAsciiCode": (self.keyGotAscii, _("Keyboard data entry"))
-		}, prio=1, description=_("Common Setup Actions"))
+		}, prio=1)
 		self["editConfigActions"].setEnabled(False if fullUI else True)
 		self["virtualKeyBoardActions"] = HelpableActionMap(self, "VirtualKeyboardActions", {
 			"showVirtualKeyboard": (self.keyText, _("Display the virtual keyboard for data entry"))
-		}, prio=1, description=_("Common Setup Actions"))
+		}, prio=1)
 		self["virtualKeyBoardActions"].setEnabled(False)
 
 		# Temporary support for legacy code and plugins that hasn't yet been updated (next 4 lines).
